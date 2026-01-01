@@ -1,0 +1,185 @@
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0f766e;
+  --accent-2: #1d4ed8;
+  --line: #e2e8f0;
+  --heading-font: "Spectral", "Times New Roman", serif;
+  --body-font: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body-font);
+}
+
+#deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.frame {
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  padding: 56px 72px 48px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+.header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.footer .title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.content h1,
+.content h2 {
+  font-family: var(--heading-font);
+  margin: 0 0 16px 0;
+  font-weight: 700;
+}
+
+.content h1 {
+  font-size: 46px;
+  line-height: 1.12;
+  color: var(--accent);
+}
+
+.content h2 {
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.content h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 12px 0 12px;
+  color: var(--accent-2);
+}
+
+.content p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  color: var(--text);
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.content li::before {
+  content: "\25A0";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.title-slide {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.title-slide .subtitle {
+  font-size: 24px;
+  color: var(--text);
+  margin: 0;
+}
+
+.title-slide .meta {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.note {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .frame {
+    padding: 40px 40px 32px;
+  }
+
+  .content h1 {
+    font-size: 36px;
+  }
+
+  .content h2 {
+    font-size: 28px;
+  }
+
+  .content li,
+  .content p {
+    font-size: 18px;
+  }
+}
