@@ -3,319 +3,364 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Engineering Hydrokinetic Power</title>
+    <title>Hydrokinetic Energy Conversion Systems</title>
     <link rel="stylesheet" href="beamer.css">
+    <!-- KaTeX for LaTeX math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
   </head>
   <body>
     <div id="deck">
-      <section class="slide" data-section="Engineering Hydrokinetic Power" data-title="Title" data-chrome="off">
+      
+      <!-- Slide 1: Title -->
+      <section class="slide" data-section="Introduction" data-title="Title" data-chrome="off">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content title-slide">
-            <h1>Engineering Hydrokinetic Power</h1>
-            <p class="subtitle">Resource assessment, AMM, and deployment</p>
-            <p class="meta">Hydrokinetic systems without dams</p>
+            <h1>Hydrokinetic Energy Conversion Systems</h1>
+            <p class="subtitle">A Civil & Water Resources Engineering Perspective</p>
+            <p class="author">CE471 - Civil Engineering</p>
+            <p class="date">January 1, 2026</p>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Overview" data-title="Hydrokinetic vs Conventional">
+      <!-- Slide 2: Introduction -->
+      <section class="slide" data-section="Introduction" data-title="What is Hydrokinetic Energy?">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Hydrokinetic vs Conventional Hydro</h2>
+            <h2>What is Hydrokinetic Energy?</h2>
             <ul>
-              <li>Conventional hydro relies on head from dams</li>
-              <li>Hydrokinetic uses moving water energy directly</li>
-              <li>Flows from rivers, tides, and ocean currents</li>
-              <li>No impoundments or large reservoirs required</li>
+              <li><strong>Definition:</strong> Energy derived from the motion of water (kinetic energy) rather than its potential energy (head).</li>
+              <li><strong>Sources:</strong>
+                <ul>
+                  <li>River streams (without dams)</li>
+                  <li>Tidal currents</li>
+                  <li>Ocean currents</li>
+                  <li>Man-made channels</li>
+                </ul>
+              </li>
+              <li><strong>Analogy:</strong> "Underwater Wind Turbines" - utilizing water density instead of air.</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act I - Resource" data-title="Resource Assessment">
+      <!-- Slide 3: Need -->
+      <section class="slide" data-section="Motivation" data-title="Why Hydrokinetic Energy?">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Resource Assessment</h2>
-            <ul>
-              <li>Current velocity typically greater than 1.5 m/s</li>
-              <li>Predictable tidal cycles or stable river flow</li>
-              <li>Suitable depth and seabed conditions</li>
-              <li>Examples: Salish Sea, Pentland Firth, Bosphorus</li>
-            </ul>
+            <h2>Why Hydrokinetic Energy?</h2>
+            <div class="block">
+              <div class="block-title">Key Advantages</div>
+              <div class="block-content">
+                <ul>
+                  <li><strong>High Density:</strong> Water is $\approx 830$ times denser than air.</li>
+                  <li><strong>Predictability:</strong> Tides and river flows are highly predictable compared to wind/solar.</li>
+                  <li><strong>Minimal Infrastructure:</strong> No need for massive dams or reservoirs (low civil works footprint).</li>
+                  <li><strong>Base Load Potential:</strong> Continuous power generation in rivers.</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act I - Resource" data-title="Bosphorus Strait">
+      <!-- Slide 4: Working Principle -->
+      <section class="slide" data-section="Theory" data-title="Working Principle">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Case Study - Bosphorus Strait</h2>
+            <h2>Working Principle</h2>
+            <p>Hydrokinetic devices capture energy from the flow velocity.</p>
+            <p>Based on <strong>Bernoulli's Principle</strong>, but primarily utilizing the dynamic pressure component.</p>
+            <div class="equation">
+              $$ P = \frac{1}{2} \rho A v^3 C_p $$
+            </div>
             <ul>
-              <li>Two-layer flow driven by elevation and salinity</li>
-              <li>Upper layer flows south, lower layer flows north</li>
-              <li>Surface currents often exceed 2.0 m/s</li>
-              <li>Flow varies with wind and Danube inflow</li>
+              <li>$P$: Power output (Watts)</li>
+              <li>$\rho$: Water density ($1000 \text{ kg/m}^3$)</li>
+              <li>$A$: Swept area of the turbine ($m^2$)</li>
+              <li>$v$: Flow velocity ($m/s$)</li>
+              <li>$C_p$: Power coefficient (Betz limit $\approx 0.59$)</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act II - Engineering" data-title="Conversion System">
+      <!-- Slide 5: Physics -->
+      <section class="slide" data-section="Theory" data-title="The Cubic Relation">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Engineering the Conversion System</h2>
+            <h2>The Cubic Relation</h2>
+            <p>Power is proportional to the cube of velocity ($P \propto v^3$).</p>
             <ul>
-              <li>Turbine runner and blades capture kinetic energy</li>
-              <li>Gearbox and generator form the powertrain</li>
-              <li>Gravity-base or moored structural supports</li>
-              <li>Casting and forging are slow and expensive</li>
+              <li>A small increase in velocity yields a large increase in power.</li>
+              <li><strong>Example:</strong> Doubling the velocity ($v \to 2v$) increases power by factor of 8.</li>
             </ul>
+            <div class="alert-block">
+              <div class="block-title">Implication for Civil Engineers</div>
+              <div class="block-content">
+                Site selection is critical. Finding "hotspots" with high velocity is more important than maximizing area.
+              </div>
+            </div>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act II - Engineering" data-title="AMM and LCOE">
+      <!-- Slide 6: Technology Types -->
+      <section class="slide" data-section="Technology" data-title="Turbine Classifications">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>A New Manufacturing Paradigm</h2>
-            <ul>
-              <li>LCOE = (CAPEX + OPEX) / Annual Energy Production</li>
-              <li>AMM reduces CAPEX and OPEX</li>
-              <li>Design freedom increases energy production</li>
-              <li>Faster iterations shorten deployment cycles</li>
-            </ul>
+            <h2>Turbine Classifications</h2>
+            <div class="columns">
+              <div class="column">
+                <h3>Axial Flow</h3>
+                <ul>
+                  <li>Horizontal axis</li>
+                  <li>Resembles wind turbines</li>
+                  <li>High efficiency</li>
+                  <li>Requires alignment mechanism</li>
+                </ul>
+              </div>
+              <div class="column">
+                <h3>Cross-Flow</h3>
+                <ul>
+                  <li>Vertical or Horizontal axis</li>
+                  <li>Axis perpendicular to flow</li>
+                  <li>Can accept flow from any direction (Vertical)</li>
+                  <li>Robust design</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act II - Engineering" data-title="Metal Additive Manufacturing">
+      <!-- Slide 7: Comparison -->
+      <section class="slide" data-section="Comparison" data-title="HK vs. Conventional Hydro">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Metal Additive Manufacturing</h2>
-            <ul>
-              <li>PBF: high resolution, complex internal channels</li>
-              <li>DED: large volumes, ideal for major components</li>
-              <li>Enables rapid repair and part replacement</li>
-              <li>Reduces reliance on large castings</li>
-            </ul>
+            <h2>Comparison with Conventional Hydro</h2>
+            <table class="beamer-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Conventional (Dams)</th>
+                  <th>Hydrokinetic</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Energy Source</strong></td>
+                  <td>Potential (Head)</td>
+                  <td>Kinetic (Velocity)</td>
+                </tr>
+                <tr>
+                  <td><strong>Civil Works</strong></td>
+                  <td>Extensive (Dams, Tunnels)</td>
+                  <td>Minimal (Anchors, Cables)</td>
+                </tr>
+                <tr>
+                  <td><strong>Env. Impact</strong></td>
+                  <td>High (Flooding, Sediment)</td>
+                  <td>Low (Local flow alteration)</td>
+                </tr>
+                <tr>
+                  <td><strong>Cost</strong></td>
+                  <td>High CAPEX, Low OPEX</td>
+                  <td>Moderate CAPEX, Higher OPEX</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act II - Engineering" data-title="Composites and Concrete">
+      <!-- Slide 8: Current Status -->
+      <section class="slide" data-section="Status" data-title="Current Status & Trends">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Composites and Printed Concrete</h2>
+            <h2>Current Status & Trends</h2>
             <ul>
-              <li>FRPC wicket gates add ~35 years of life</li>
-              <li>Composite penstocks reduce corrosion risk</li>
-              <li>Printed concrete enables on-site foundations</li>
-              <li>Logistics costs drop for remote sites</li>
+              <li><strong>Global Capacity:</strong> Still in early commercialization (MW scale).</li>
+              <li><strong>Leading Countries:</strong> UK (Scotland), Canada, USA, France.</li>
+              <li><strong>Projects:</strong>
+                <ul>
+                  <li>MeyGen (Scotland) - Tidal array</li>
+                  <li>Roosevelt Island (NYC) - River tidal</li>
+                </ul>
+              </li>
+              <li><strong>Trend:</strong> Moving from single prototypes to arrays (farms).</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act II - Engineering" data-title="AMM in Practice">
+      <!-- Slide 9: Civil Engineering -->
+      <section class="slide" data-section="Civil Engineering" data-title="Site Selection & Assessment">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>AMM in Practice</h2>
+            <h2>Civil Engineering: Site Selection</h2>
+            <p>The role of the Civil Engineer is crucial in resource assessment.</p>
             <ul>
-              <li>Nimbus Dam: 50% mass reduction with AM redesign</li>
-              <li>Emrgy Inc.: 78% tooling cost savings</li>
-              <li>Rapid prototyping for hydrofoils and spokes</li>
+              <li><strong>Bathymetry:</strong> Mapping the river/seabed floor.</li>
+              <li><strong>ADCP Surveys:</strong> Measuring velocity profiles ($v(z)$).</li>
+              <li><strong>Geotechnical:</strong> Soil properties for anchoring.</li>
+              <li><strong>Constraints:</strong> Navigation channels, protected areas.</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act III - Deployment" data-title="MeyGen Project">
+      <!-- Slide 10: Foundations -->
+      <section class="slide" data-section="Civil Engineering" data-title="Foundation Systems">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Act III - The MeyGen Project</h2>
-            <ul>
-              <li>Pentland Firth tidal energy project in Scotland</li>
-              <li>Phase 1 demo: 6 MW operational since 2018</li>
-              <li>Lease potential up to 398 MW</li>
-              <li>Over 37 GWh generated by 2020</li>
-            </ul>
+            <h2>Foundation & Anchoring Systems</h2>
+            <p>How do we keep the turbine in place against strong currents?</p>
+            <div class="block">
+              <div class="block-title">Types of Foundations</div>
+              <div class="block-content">
+                <ol>
+                  <li><strong>Gravity Base:</strong> Concrete mass (friction holds it).</li>
+                  <li><strong>Monopile:</strong> Steel pile driven into seabed (like offshore wind).</li>
+                  <li><strong>Mooring Lines:</strong> Floating turbines anchored by cables and drag anchors.</li>
+                </ol>
+              </div>
+            </div>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act III - Deployment" data-title="MeyGen Turbines">
+      <!-- Slide 11: Water Resources -->
+      <section class="slide" data-section="Water Resources" data-title="Hydraulic Impact">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>MeyGen Turbine Details</h2>
+            <h2>Water Resources: Hydraulic Impact</h2>
+            <p>Extracting energy removes momentum from the flow.</p>
             <ul>
-              <li>Atlantis AR1500: 1.5 MW, 18 m rotor, yawed nacelle</li>
-              <li>Andritz HS1500: 1.5 MW with active blade monitoring</li>
-              <li>Pitch control optimizes power across tidal cycles</li>
+              <li><strong>Wake Effect:</strong> Velocity deficit behind the turbine.</li>
+              <li><strong>Backwater Effect:</strong> Slight increase in upstream water level (usually negligible for HK).</li>
+              <li><strong>Sediment Transport:</strong> Changes in velocity can affect scour and deposition patterns.</li>
             </ul>
+            <p><em>Modeling with CFD (Computational Fluid Dynamics) is essential.</em></p>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act III - Deployment" data-title="Subsea Hub">
+      <!-- Slide 12: Environmental -->
+      <section class="slide" data-section="Environment" data-title="Environmental Considerations">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Project Stroma Subsea Hub</h2>
+            <h2>Environmental Considerations</h2>
             <ul>
-              <li>Connects multiple turbines to one export cable</li>
-              <li>Reduces drilling, vessel time, and costs</li>
-              <li>Simplifies expansion for future arrays</li>
+              <li><strong>Fish Interaction:</strong> Strike risk vs. avoidance.
+                <ul>
+                  <li>Turbines rotate slowly compared to ship propellers.</li>
+                </ul>
+              </li>
+              <li><strong>Acoustics:</strong> Noise impact on marine mammals.</li>
+              <li><strong>EMF:</strong> Electromagnetic fields from subsea cables.</li>
+              <li><strong>Water Quality:</strong> Generally no pollution, but hydraulic changes matter.</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act III - Deployment" data-title="Environmental Monitoring">
+      <!-- Slide 13: Challenges -->
+      <section class="slide" data-section="Challenges" data-title="Engineering Challenges">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Environmental Monitoring</h2>
+            <h2>Engineering Challenges</h2>
+            <div class="alert-block">
+              <div class="block-title">Harsh Environment</div>
+              <div class="block-content">
+                <ul>
+                  <li><strong>Corrosion:</strong> Saltwater / bio-fouling.</li>
+                  <li><strong>Debris:</strong> Logs and ice in rivers.</li>
+                  <li><strong>Turbulence:</strong> Fatigue loading on blades.</li>
+                </ul>
+              </div>
+            </div>
             <ul>
-              <li>Active acoustics, cameras, and tagging used</li>
-              <li>Marine life avoids rotors during operation</li>
-              <li>No collisions observed in monitoring campaigns</li>
+              <li><strong>Grid Connection:</strong> Underwater cabling to shore.</li>
+              <li><strong>Maintenance:</strong> Access is difficult and expensive.</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act IV - Optimization" data-title="Cold Spray">
+      <!-- Slide 14: Future -->
+      <section class="slide" data-section="Future" data-title="Future Outlook">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Act IV - Optimization via Cold Spray</h2>
+            <h2>Future Outlook</h2>
             <ul>
-              <li>Supersonic deposition repairs cavitation damage</li>
-              <li>3x higher cavitation resistance than fillers</li>
-              <li>Extends service life with minimal downtime</li>
+              <li><strong>Cost Reduction:</strong> Learning curves similar to wind/solar.</li>
+              <li><strong>Hybrid Systems:</strong> Combining with bridge piers or existing infrastructure.</li>
+              <li><strong>River Applications:</strong> Remote communities (replacing diesel).</li>
+              <li><strong>Role of Civil Engineers:</strong> Designing resilient infrastructure for these dynamic loads.</li>
             </ul>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act IV - Optimization" data-title="Functionally Graded Materials">
+      <!-- Slide 15: Conclusion -->
+      <section class="slide" data-section="Conclusion" data-title="Summary">
         <div class="frame">
-          <div class="header"><span class="section"></span></div>
+          <div class="header"><span class="section"></span><span class="subsection"></span></div>
           <div class="content">
-            <h2>Functionally Graded Materials</h2>
+            <h2>Summary</h2>
             <ul>
-              <li>Transition from ductile core to hard surface</li>
-              <li>Improves cavitation and erosion resistance</li>
-              <li>Eliminates coating de-bonding risk</li>
+              <li>Hydrokinetic energy is a promising renewable source.</li>
+              <li>It utilizes the kinetic energy of water ($P \propto v^3$).</li>
+              <li>Civil Engineers play a key role in:
+                <ul>
+                  <li>Resource Assessment</li>
+                  <li>Foundation Design</li>
+                  <li>Environmental Impact Mitigation</li>
+                </ul>
+              </li>
+              <li>Offers a sustainable alternative with minimal civil works compared to dams.</li>
             </ul>
+            <div class="center-text" style="margin-top: 2em; text-align: center;">
+              <strong>Thank You</strong>
+            </div>
           </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
+          <div class="footer"><span class="author">CE471 Group</span><span class="title"></span><span class="count"></span></div>
         </div>
       </section>
 
-      <section class="slide" data-section="Act IV - Optimization" data-title="Digital Twins">
-        <div class="frame">
-          <div class="header"><span class="section"></span></div>
-          <div class="content">
-            <h2>Digital Twins and Smart Components</h2>
-            <ul>
-              <li>Embedded sensors printed during fabrication</li>
-              <li>Real-time monitoring for predictive maintenance</li>
-              <li>Improves reliability and planning</li>
-            </ul>
-          </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <section class="slide" data-section="Deployment" data-title="Non-Powered Dams">
-        <div class="frame">
-          <div class="header"><span class="section"></span></div>
-          <div class="content">
-            <h2>Unlocking Non-Powered Dams</h2>
-            <ul>
-              <li>Over 90,000 U.S. dams with no generation</li>
-              <li>Modular designs reduce CAPEX for small sites</li>
-              <li>Lower-cost materials improve project viability</li>
-            </ul>
-          </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <section class="slide" data-section="Ecosystem" data-title="Collaborative Model">
-        <div class="frame">
-          <div class="header"><span class="section"></span></div>
-          <div class="content">
-            <h2>Collaborative Ecosystem</h2>
-            <ul>
-              <li>University, industry, and government partnership</li>
-              <li>Moves TRL from concept to deployment</li>
-              <li>Shared infrastructure reduces risk</li>
-            </ul>
-          </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <section class="slide" data-section="Ecosystem" data-title="Non-Technical Needs">
-        <div class="frame">
-          <div class="header"><span class="section"></span></div>
-          <div class="content">
-            <h2>Non-Technical Needs</h2>
-            <ul>
-              <li>Workforce training for new manufacturing methods</li>
-              <li>Open data to build confidence in reliability</li>
-              <li>Testing facilities for late-stage validation</li>
-            </ul>
-          </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <section class="slide" data-section="Conclusion" data-title="Conclusion">
-        <div class="frame">
-          <div class="header"><span class="section"></span></div>
-          <div class="content">
-            <h2>Conclusion</h2>
-            <ul>
-              <li>Hydrokinetic power bridges water engineering and AMM</li>
-              <li>Resource assessment guides viable sites</li>
-              <li>Advanced materials unlock performance and durability</li>
-              <li>Deployment success needs technical and social systems</li>
-            </ul>
-          </div>
-          <div class="footer"><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
     </div>
-
-    <button id="nav-next" class="nav-btn" aria-label="Next slide">›</button>
     <script src="beamer.js"></script>
   </body>
 </html>

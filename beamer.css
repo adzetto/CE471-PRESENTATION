@@ -1,15 +1,13 @@
 :root {
   --bg: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --accent: #0f766e;
-  --accent-2: #1d4ed8;
-  --line: #e2e8f0;
-  --heading-font: "Spectral", "Times New Roman", serif;
-  --body-font: "Source Sans 3", "Segoe UI", sans-serif;
+  --text: #000000;
+  --primary: #3333b2; /* Madrid Blue */
+  --secondary: #666699; /* Darker Blue for contrast */
+  --tertiary: #e6e6fa; /* Very Light Blue */
+  --alert: #d9534f;
+  --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -20,209 +18,256 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg);
+  background: #000; /* Presentation background outside slide */
   color: var(--text);
-  font-family: var(--body-font);
+  font-family: var(--font-main);
+  overflow: hidden;
 }
 
 #deck {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  background: var(--bg);
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Slide Aspect Ratio 4:3 or 16:9. Let's go with 16:9 for modern screens */
 .slide {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 200ms ease;
+  width: 100%; /* Fallback */
+  height: 100%; /* Fallback */
+  max-width: 160vh; /* 16:9 aspect ratio constraint */
+  max-height: 90vw; /* 16:9 aspect ratio constraint */
+  aspect-ratio: 16/9;
+  background: var(--bg);
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .slide.active {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
 }
 
+/* Frame Structure */
 .frame {
-  width: min(100vw, calc(100vh * 16 / 9));
-  height: min(100vh, calc(100vw * 9 / 16));
-  padding: 56px 72px 48px;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
+/* Header */
 .header {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.footer {
-  border-top: 1px solid var(--line);
-  padding-top: 12px;
+  background: linear-gradient(to right, var(--primary) 50%, var(--secondary) 50%);
+  color: white;
+  height: 3rem;
   display: flex;
   align-items: center;
+  padding: 0 1rem;
+  font-size: 0.9rem;
   justify-content: space-between;
-  font-size: 15px;
-  color: var(--muted);
+}
+
+.header .section {
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(to right, var(--primary) 33%, var(--secondary) 33%, var(--secondary) 66%, var(--tertiary) 66%);
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.footer > span {
+  flex: 1;
+  padding: 0 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer .author {
+  background: var(--primary); /* Left part */
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .footer .title {
-  font-weight: 600;
-  color: var(--text);
-}
-
-.content h1,
-.content h2 {
-  font-family: var(--heading-font);
-  margin: 0 0 16px 0;
-  font-weight: 700;
-}
-
-.content h1 {
-  font-size: 46px;
-  line-height: 1.12;
-  color: var(--accent);
-}
-
-.content h2 {
-  font-size: 34px;
-  line-height: 1.2;
-  color: var(--text);
-}
-
-.content h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 12px 0 12px;
-  color: var(--accent-2);
-}
-
-.content p {
-  font-size: 20px;
-  line-height: 1.5;
-  margin: 0 0 12px 0;
-  color: var(--text);
-}
-
-.content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.content li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
-  font-size: 20px;
-  line-height: 1.5;
-  color: var(--text);
-}
-
-.content li::before {
-  content: "\25A0";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: var(--accent);
-  font-size: 12px;
-}
-
-.title-slide {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  padding-top: 20px;
-}
-
-.title-slide .subtitle {
-  font-size: 24px;
-  color: var(--text);
-  margin: 0;
-}
-
-.title-slide .meta {
-  font-size: 16px;
-  color: var(--muted);
-}
-
-.note {
-  font-size: 18px;
-  color: var(--muted);
-}
-
-.nav-btn {
-  position: fixed;
-  top: 50%;
-  right: 28px;
-  transform: translateY(-50%);
-  width: 54px;
-  height: 54px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  color: var(--accent-2);
-  font-size: 30px;
-  font-weight: 600;
+  background: var(--secondary); /* Middle part */
+  color: black;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 16px 28px rgba(15, 23, 42, 0.14);
-  cursor: pointer;
-  transition: transform 120ms ease, box-shadow 120ms ease;
-  z-index: 10;
 }
 
-.nav-btn:hover {
-  transform: translateY(-50%) scale(1.04);
-  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.2);
+.footer .count {
+  background: var(--tertiary); /* Right part */
+  color: black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.nav-btn:active {
-  transform: translateY(-50%) scale(0.98);
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align to top usually */
 }
 
-.nav-btn:focus-visible {
-  outline: 2px solid var(--accent-2);
-  outline-offset: 3px;
+.content.title-slide {
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(to bottom, #f0f0f0 0%, #ffffff 100%);
 }
 
-@media (max-width: 900px) {
-  .frame {
-    padding: 40px 40px 32px;
-  }
+/* Typography */
+h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
 
-  .content h1 {
-    font-size: 36px;
-  }
+h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-top: 0;
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
 
-  .content h2 {
-    font-size: 28px;
-  }
+h3 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
 
-  .content li,
-  .content p {
-    font-size: 18px;
-  }
+p, li {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
 
-  .nav-btn {
-    right: 16px;
-    width: 46px;
-    height: 46px;
-    font-size: 24px;
-  }
+ul {
+  padding-left: 1.5rem;
+}
+
+li::marker {
+  color: var(--primary);
+}
+
+/* Blocks */
+.block {
+  margin: 1rem 0;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.block-title {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.block-content {
+  background: #e6e6fa; /* Light blueish gray */
+  padding: 1rem;
+  border: 1px solid var(--primary);
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.alert-block .block-title {
+  background: var(--alert);
+}
+
+.alert-block .block-content {
+  background: #ffe6e6;
+  border-color: var(--alert);
+}
+
+/* Equation */
+.equation {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+/* Columns */
+.columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.column {
+  flex: 1;
+}
+
+/* Table */
+.beamer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.beamer-table th {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem;
+  text-align: left;
+}
+
+.beamer-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.beamer-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Title Slide Specifics */
+.title-slide h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.title-slide .subtitle {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin-bottom: 2rem;
+}
+
+.title-slide .author, .title-slide .date {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }

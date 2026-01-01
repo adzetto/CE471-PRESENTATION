@@ -17,13 +17,16 @@
     const chromeMode = current.dataset.chrome || 'on';
 
     const header = current.querySelector('.header .section');
+    const subsection = current.querySelector('.header .subsection');
     const footerTitle = current.querySelector('.footer .title');
     const footerCount = current.querySelector('.footer .count');
     const headerWrap = current.querySelector('.header');
     const footerWrap = current.querySelector('.footer');
 
     if (header) header.textContent = section;
-    if (footerTitle) footerTitle.textContent = title;
+    if (subsection) subsection.textContent = title;
+    // Fixed presentation title in footer
+    if (footerTitle) footerTitle.textContent = "Hydrokinetic Energy Conversion Systems";
     if (footerCount) footerCount.textContent = `${index + 1} / ${total}`;
 
     if (chromeMode === 'off') {
