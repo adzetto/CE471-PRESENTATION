@@ -185,6 +185,17 @@ button {
     text-align: center;
 }
 
+.media-row {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-row .figure-img {
+    width: 48%;
+}
+
 .slide.top {
     justify-content: flex-start;
     text-align: left;
