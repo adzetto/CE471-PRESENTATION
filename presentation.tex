@@ -1,0 +1,140 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+% Presentation Info
+\title[Hydrokinetic Energy]{Hydrokinetic Energy Conversion Systems}
+\subtitle{Group 10 Project}
+\author[Group 10]{Hamidreza Khalaj Zahrari \and Muhammet Yağcıoğlu}
+\institute[]{Civil Engineering Department}
+\date{05.01.2026}
+
+\begin{document}
+
+% Slide 1: Title
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Slide 2: Introduction
+\begin{frame}{What is Hydrokinetic Energy?}
+    \begin{itemize}
+        \item \textbf{Definition:} Energy derived from the motion of water (kinetic energy) rather than its potential energy (head).
+        \item \textbf{Analogy:} "Underwater Wind Turbines" - utilizing water density instead of air.
+        \item \textbf{Key Difference:}
+        \begin{itemize}
+            \item \textbf{Conventional Hydro:} Uses potential energy (Dam height).
+            \item \textbf{Hydrokinetic:} Uses kinetic energy (Flow velocity).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 3: History
+\begin{frame}{Historical Context}
+    \begin{itemize}
+        \item \textbf{Ancient Origins:} Water wheels (M.Ö. 4000) used for grinding grain were the first use of kinetic water energy.
+        \item \textbf{Modern Evolution (1920s):} Georges Darrieus proposed vertical axis turbines for wind, which was later adapted for water.
+        \item \textbf{Current Era:} Combining ancient principles with modern aerodynamics and hydrodynamics (submarine tech).
+    \end{itemize}
+\end{frame}
+
+% Slide 4: Working Principle
+\begin{frame}{Working Principle}
+    Power generation is based on the kinetic energy equation:
+    \begin{equation}
+        P = \frac{1}{2} \rho A v^3 C_p
+    \end{equation}
+    \begin{itemize}
+        \item $P$: Power output (Watts)
+        \item $\rho$: Water density ($\approx 1000 \text{ kg/m}^3$, 830x denser than air)
+        \item $A$: Swept area ($m^2$)
+        \item $v$: Flow velocity ($m/s$) - \textbf{Crucial Factor ($v^3$)}
+        \item $C_p$: Power coefficient
+    \end{itemize}
+\end{frame}
+
+% Slide 5: Comparison
+\begin{frame}{Comparison with Conventional Dams}
+    \begin{table}
+        \begin{tabular}{|l|l|l|}
+            \hline
+            \textbf{Feature} & \textbf{Conventional Dams} & \textbf{Hydrokinetic} \\
+            \hline
+            \textbf{Source} & Potential Energy (Head) & Kinetic Energy (Velocity) \\
+            \hline
+            \textbf{Infrastructure} & Massive Concrete Dams & Modular Turbines \\
+            \hline
+            \textbf{Env. Impact} & Flooding, Fish Barriers & Minimal, Fish Friendly \\
+            \hline
+            \textbf{Installation} & Years (5-10 years) & Weeks (Modular) \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% Slide 6: Turkey Context
+\begin{frame}{Hydrokinetic Energy in Turkey}
+    Turkey has significant potential in straits and irrigation channels.
+    \begin{block}{Key Projects \& Initiatives}
+        \begin{itemize}
+            \item \textbf{Mavi İda Enerji (Çanakkale):} Developing the "M30" domestic current turbine for the Bosphorus/Dardanelles.
+            \item \textbf{Adana Irrigation Channels:} Pilot projects using portable turbines in DSİ channels (ECC Makina).
+            \item \textbf{TOBB ETÜ (Ankara):} Developing "Container Type HPP" and in-pipe turbines for municipal water lines (İZSU).
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% Slide 7: Potential & Challenges
+\begin{frame}{Potential \& Challenges in Turkey}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Potential}
+            \begin{itemize}
+                \item \textbf{The Straits (Bosphorus):} A natural energy corridor with continuous two-way currents.
+                \item \textbf{Rivers:} Euphrates (Fırat) and Tigris (Dicle).
+                \item \textbf{Irrigation:} GAP region channels.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{Challenges}
+            \begin{itemize}
+                \item \textbf{Maritime Traffic:} Busy shipping lanes in Bosphorus.
+                \item \textbf{Anchoring:} Difficult seabed conditions.
+                \item \textbf{Maintenance:} Biofouling and underwater access.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% Slide 8: Civil Engineering
+\begin{frame}{Civil Engineering Aspects}
+    \begin{itemize}
+        \item \textbf{Site Selection:} Bathymetry mapping and ADCP velocity surveys.
+        \item \textbf{Foundation Design:}
+        \begin{itemize}
+            \item Gravity Base (Concrete weight)
+            \item Monopiles (Driven steel piles)
+            \item Mooring Systems (Anchors \& Cables)
+        \end{itemize}
+        \item \textbf{Grid Connection:} Subsea cabling and onshore substations.
+    \end{itemize}
+\end{frame}
+
+% Slide 9: Conclusion
+\begin{frame}{Summary}
+    \begin{itemize}
+        \item Hydrokinetic energy is a sustainable alternative to dams, utilizing water velocity ($P \propto v^3$).
+        \item Offers high energy density and predictability.
+        \item \textbf{Turkey's Role:} Significant potential in Bosphorus and irrigation channels with ongoing R\&D (Mavi İda, TOBB ETÜ).
+        \item Civil engineers are vital for infrastructure, foundation, and deployment.
+    \end{itemize}
+    \vspace{1cm}
+    \centering
+    \textbf{\Large Thank You}
+\end{frame}
+
+\end{document}
