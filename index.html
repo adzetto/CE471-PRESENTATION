@@ -1,320 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hydrokinetic Energy Conversion Systems</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrokinetic Energy - Group 10</title>
     <link rel="stylesheet" href="beamer.css">
-    <!-- KaTeX for LaTeX math rendering -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body);"></script>
-    <style>
-      /* Additional Academic Styles */
-      .logo-container {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        width: 80px;
-        opacity: 0.8;
-      }
-      .columns-middle {
-        align-items: center;
-      }
-      .caption {
-        font-size: 0.8rem;
-        color: #666;
-        text-align: center;
-        margin-top: 0.5rem;
-        font-style: italic;
-      }
-      .tikz-figure {
-        display: flex;
-        justify-content: center;
-        margin: 1rem 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="deck">
-      
-      <!-- Slide 1: Title -->
-      <section class="slide" data-section="Introduction" data-title="Title" data-chrome="off">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content title-slide">
-            <!-- Placeholder for Logo -->
-            <div style="margin-bottom: 2rem; font-weight: bold; color: var(--primary); font-size: 1.2rem;">
-              IZMIR INSTITUTE OF TECHNOLOGY<br>
-              <span style="font-size: 1rem; color: var(--secondary);">CIVIL ENGINEERING DEPARTMENT</span>
-            </div>
-            
-            <h1>Hydrokinetic Energy Conversion Systems</h1>
-            <p class="subtitle">Analysis, Design, and Implementation Strategies</p>
-            
-            <div style="margin-top: 3rem;">
-              <p class="author"><strong>Group 10</strong></p>
-              <p class="author">Hamidreza Khalaj Zahrari</p>
-              <p class="author">Muhammet Yağcıoğlu</p>
-            </div>
-            
-            <p class="date" style="margin-top: 2rem; font-size: 0.9rem;">January 5, 2026</p>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
+    <!-- KaTeX is removed as per request -->
+</head>
+<body>
 
-      <!-- Slide 2: Introduction -->
-      <section class="slide" data-section="Introduction" data-title="Overview">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Introduction to Hydrokinetic Energy</h2>
-            <div class="columns">
-              <div class="column" style="flex: 2;">
-                <ul>
-                  <li><strong>Definition:</strong> A renewable energy technology that converts the kinetic energy of moving water (rivers, tides, ocean currents) into electricity without the need for impoundments (dams).</li>
-                  <li><strong>Core Concept:</strong> Analogous to wind turbines but operating in a fluid medium $\approx 830$ times denser than air.</li>
-                  <li><strong>Significance:</strong> Offers a baseload renewable energy source with minimal civil infrastructure requirements.</li>
-                </ul>
-              </div>
-              <div class="column" style="flex: 1; display: flex; justify-content: center; align-items: center;">
-                <!-- Simple SVG Icon for Turbine -->
-                <svg width="150" height="150" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" stroke="#a40000" stroke-width="2" fill="none"/>
-                  <path d="M50 50 L50 10 M50 50 L85 70 M50 50 L15 70" stroke="#2c3e50" stroke-width="4" stroke-linecap="round"/>
-                  <circle cx="50" cy="50" r="5" fill="#a40000"/>
-                  <path d="M20 20 Q 50 5 80 20" stroke="#3498db" stroke-width="2" fill="none" stroke-dasharray="4"/>
-                  <path d="M20 50 Q 50 35 80 50" stroke="#3498db" stroke-width="2" fill="none" stroke-dasharray="4"/>
-                  <path d="M20 80 Q 50 65 80 80" stroke="#3498db" stroke-width="2" fill="none" stroke-dasharray="4"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <!-- Slide 3: Working Principle (Image) -->
-      <section class="slide" data-section="Methodology" data-title="Working Principle">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Working Principle & System Architecture</h2>
-            <div class="columns columns-middle">
-              <div class="column">
-                <p>The system operates on the principle of hydrodynamic lift and drag.</p>
-                <div class="block">
-                  <div class="block-title">Energy Conversion Equation</div>
-                  <div class="block-content">
-                    $$ P = \frac{1}{2} \rho A v^3 C_p \eta $$
-                    <small>Where $\eta$ represents the mechanical/electrical efficiency.</small>
-                  </div>
-                </div>
-                <ul>
-                  <li><strong>Rotor:</strong> Captures kinetic energy.</li>
-                  <li><strong>Powertrain:</strong> Increases rotational speed (Gearbox).</li>
-                  <li><strong>Generator:</strong> Converts mechanical to electrical energy.</li>
-                </ul>
-              </div>
-              <div class="column">
-                <div style="text-align: center; background: #fff; padding: 10px; border: 1px solid #ddd; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
-                  <img src="working.png" alt="Working Principle Diagram" style="max-width: 100%; max-height: 300px;">
-                  <div class="caption">Figure 1: Schematic representation of a hydrokinetic turbine system.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <!-- Slide 4: Velocity Triangle (TikZ Style) -->
-      <section class="slide" data-section="Methodology" data-title="Hydrodynamic Analysis">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Hydrodynamic Analysis: Velocity Triangles</h2>
-            <p>Understanding the flow interaction at the blade section is critical for efficiency ($C_p$).</p>
-            
-            <div class="tikz-figure">
-              <!-- SVG simulating a TikZ Velocity Triangle -->
-              <svg width="600" height="250" viewBox="0 0 600 250" style="background: #fff; border: 1px solid #eee;">
-                <defs>
-                  <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                    <path d="M0,0 L0,6 L9,3 z" fill="#000" />
-                  </marker>
-                  <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                    <path d="M0,0 L0,6 L9,3 z" fill="#a40000" />
-                  </marker>
-                  <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                    <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
-                  </marker>
-                </defs>
-                
-                <!-- Blade Section -->
-                <path d="M250 150 Q 300 120 350 150" stroke="#333" stroke-width="3" fill="none" />
-                <text x="300" y="170" text-anchor="middle" font-size="12">Blade Section</text>
-                
-                <!-- Vectors -->
-                <!-- Absolute Velocity V -->
-                <line x1="100" y1="150" x2="240" y2="150" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow-blue)" />
-                <text x="170" y="140" fill="#2980b9" font-weight="bold">$V_{flow}$</text>
-                
-                <!-- Rotational Velocity U -->
-                <line x1="250" y1="150" x2="250" y2="50" stroke="#a40000" stroke-width="2" marker-end="url(#arrow-red)" />
-                <text x="260" y="100" fill="#a40000" font-weight="bold">$U = \omega r$</text>
-                
-                <!-- Relative Velocity W -->
-                <line x1="100" y1="150" x2="250" y2="50" stroke="#000" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5,5" />
-                <text x="160" y="90" fill="#000" font-weight="bold">$W_{rel}$</text>
-                
-                <!-- Angle of Attack -->
-                <path d="M230 150 A 20 20 0 0 0 240 135" stroke="#666" fill="none"/>
-                <text x="210" y="165" font-size="12">$\alpha$</text>
-              </svg>
-            </div>
-            
-            <ul>
-              <li><strong>$V_{flow}$:</strong> Absolute velocity of the water current.</li>
-              <li><strong>$U$:</strong> Tangential velocity of the blade ($\omega \cdot r$).</li>
-              <li><strong>$W_{rel}$:</strong> Relative velocity seen by the blade.</li>
-              <li><strong>$\alpha$:</strong> Angle of attack, determining Lift ($L$) and Drag ($D$) forces.</li>
-            </ul>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <!-- Slide 5: Comparison -->
-      <section class="slide" data-section="Comparative Analysis" data-title="HK vs. Conventional Hydro">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Comparative Analysis</h2>
-            <table class="beamer-table">
-              <thead>
-                <tr>
-                  <th>Parameter</th>
-                  <th>Conventional Hydro (Dams)</th>
-                  <th>Hydrokinetic Systems</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Primary Energy</strong></td>
-                  <td>Potential Head ($H$)</td>
-                  <td>Kinetic Velocity ($v$)</td>
-                </tr>
-                <tr>
-                  <td><strong>Civil Works</strong></td>
-                  <td>Extensive (Dams, Penstocks)</td>
-                  <td>Minimal (Anchors, Cabling)</td>
-                </tr>
-                <tr>
-                  <td><strong>Environmental</strong></td>
-                  <td>High (Inundation, Sediment)</td>
-                  <td>Low (Local flow disturbance)</td>
-                </tr>
-                <tr>
-                  <td><strong>Scalability</strong></td>
-                  <td>Site-specific, Large scale</td>
-                  <td>Modular, Array-based</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <!-- Slide 6: Turkey Context -->
-      <section class="slide" data-section="Case Studies" data-title="Implementation in Turkey">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Implementation Potential in Turkey</h2>
-            <p>Turkey possesses unique geographical advantages for hydrokinetic deployment.</p>
-            <div class="columns">
-              <div class="column">
-                <div class="block">
-                  <div class="block-title">The Turkish Straits</div>
-                  <div class="block-content">
-                    The Bosphorus and Dardanelles represent a massive energy corridor with continuous two-way currents (Black Sea $\leftrightarrow$ Marmara).
-                  </div>
-                </div>
-                <div class="block">
-                  <div class="block-title">Irrigation Networks</div>
-                  <div class="block-content">
-                    DSİ (State Hydraulic Works) channels in the GAP region offer controlled, debris-free flow environments ideal for horizontal axis turbines.
-                  </div>
-                </div>
-              </div>
-              <div class="column">
-                <h3>Current Initiatives</h3>
-                <ul>
-                  <li><strong>Mavi İda Enerji:</strong> "M30" Turbine (Çanakkale).</li>
-                  <li><strong>TOBB ETÜ:</strong> Micro-hydro and in-pipe systems.</li>
-                  <li><strong>Academic Research:</strong> IZTECH, ITU, and METU are leading CFD and experimental studies.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <!-- Slide 7: Civil Engineering -->
-      <section class="slide" data-section="Engineering" data-title="Civil Engineering Challenges">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Civil Engineering Challenges</h2>
-            <p>The deployment of HK systems requires rigorous civil engineering solutions.</p>
-            <ul>
-              <li><strong>Foundation Systems:</strong>
-                <ul>
-                  <li><em>Gravity Based Structures (GBS):</em> Rely on mass to resist sliding/overturning.</li>
-                  <li><em>Monopiles:</em> Driven into the seabed (Geotechnical analysis required).</li>
-                </ul>
-              </li>
-              <li><strong>Structural Dynamics:</strong> Fatigue analysis of blades under turbulent loading.</li>
-              <li><strong>Scour Protection:</strong> Preventing seabed erosion around foundations.</li>
-            </ul>
-            <div class="alert-block">
-              <div class="block-title">Critical Design Factor</div>
-              <div class="block-content">
-                The cubic relationship ($P \propto v^3$) implies that structural loads increase drastically with velocity. Safety factors must account for extreme flow events.
-              </div>
-            </div>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
-      <!-- Slide 8: Conclusion -->
-      <section class="slide" data-section="Conclusion" data-title="Summary">
-        <div class="frame">
-          <div class="header"><span class="section"></span><span class="subsection"></span></div>
-          <div class="content">
-            <h2>Conclusion</h2>
-            <ul>
-              <li>Hydrokinetic energy represents a paradigm shift from "static" to "dynamic" hydropower.</li>
-              <li>It aligns with sustainable development goals by minimizing civil footprint.</li>
-              <li><strong>Future Outlook:</strong> Integration with existing infrastructure (bridges, piers) and development of "farms" in the Turkish Straits.</li>
-              <li><strong>Role of Civil Engineers:</strong> Essential for ensuring the structural integrity, foundation stability, and environmental compatibility of these systems.</li>
-            </ul>
-            <div class="center-text" style="margin-top: 3em; text-align: center;">
-              <h3 style="color: var(--primary);">Thank You</h3>
-              <p>Questions?</p>
-            </div>
-          </div>
-          <div class="footer"><span class="author">Group 10 - IZTECH</span><span class="title"></span><span class="count"></span></div>
-        </div>
-      </section>
-
+<div class="slide-container">
+    <!-- Header -->
+    <div class="header">
+        <div class="left">IZTECH Civil Engineering</div>
+        <div class="right">Hydrokinetic Energy Systems</div>
     </div>
-    <script src="beamer.js"></script>
-  </body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide-1">
+        <h1>Hydrokinetic Energy Conversion Systems</h1>
+        <h2>Analysis, Design, and Implementation Strategies</h2>
+        <br>
+        <p><strong>Group 10</strong></p>
+        <p>Hamidreza Khalaj Zahrari</p>
+        <p>Muhammet Yağcıoğlu</p>
+        <br>
+        <p><em>January 5, 2026</em></p>
+    </div>
+
+    <!-- Slide 2: Introduction -->
+    <div class="slide" id="slide-2">
+        <h2>Introduction</h2>
+        <p>Hydrokinetic energy conversion is a method of generating electricity from the movement of water without the need for large dams or reservoirs.</p>
+        <p>Unlike traditional hydropower, which relies on the potential energy of falling water, hydrokinetic systems utilize the kinetic energy of flowing water in rivers, estuaries, and ocean currents.</p>
+    </div>
+
+    <!-- Slide 3: Why Do We Need It? -->
+    <div class="slide" id="slide-3">
+        <h2>Why Do We Need Hydrokinetic Energy?</h2>
+        <p>The global demand for energy is rising exponentially.</p>
+        <p>Fossil fuels are finite and contribute significantly to global warming and climate change.</p>
+        <p>We need sustainable, renewable energy sources that can provide consistent power generation to support modern civilization.</p>
+    </div>
+
+    <!-- Slide 4: Limitations of Solar and Wind -->
+    <div class="slide" id="slide-4">
+        <h2>The Limitations of Solar and Wind</h2>
+        <p>While solar and wind energy are popular, they are intermittent.</p>
+        <p>The sun does not shine at night, and the wind does not always blow.</p>
+        <p>This intermittency requires expensive battery storage solutions or backup power plants to ensure grid stability.</p>
+    </div>
+
+    <!-- Slide 5: Advantage of Water Currents -->
+    <div class="slide" id="slide-5">
+        <h2>The Advantage of Water Currents</h2>
+        <p>Water currents are remarkably predictable and consistent.</p>
+        <p>Tides can be predicted years in advance, and river flows are generally stable or change slowly.</p>
+        <p>This predictability makes hydrokinetic energy an excellent candidate for baseload power generation, reducing the need for energy storage.</p>
+    </div>
+
+    <!-- Slide 6: History - Ancient Times -->
+    <div class="slide" id="slide-6">
+        <h2>History of Water Energy: Ancient Times</h2>
+        <p>The use of water energy dates back thousands of years.</p>
+        <p>Ancient civilizations, including the Greeks and Romans, used water wheels to grind grain and pump water.</p>
+        <p>These early systems were the ancestors of modern hydrokinetic turbines, utilizing the flow of rivers directly.</p>
+    </div>
+
+    <!-- Slide 7: History - Industrial Revolution -->
+    <div class="slide" id="slide-7">
+        <h2>History: The Industrial Revolution</h2>
+        <p>During the Industrial Revolution, water power was the primary source of energy for factories and textile mills.</p>
+        <p>Water wheels evolved into more efficient turbines.</p>
+        <p>However, as electricity demand grew, the focus shifted to massive hydroelectric dams that could store vast amounts of water.</p>
+    </div>
+
+    <!-- Slide 8: Problem with Large Dams -->
+    <div class="slide" id="slide-8">
+        <h2>The Problem with Large Dams</h2>
+        <p>While effective, large dams have significant environmental downsides.</p>
+        <p>They disrupt local ecosystems, block fish migration, and alter sediment transport in rivers.</p>
+        <p>Constructing dams also requires displacing communities and flooding large areas of land.</p>
+    </div>
+
+    <!-- Slide 9: Return to Hydrokinetic Concepts -->
+    <div class="slide" id="slide-9">
+        <h2>Return to Hydrokinetic Concepts</h2>
+        <p>In recent decades, there has been a renewed interest in "run-of-river" and zero-head systems.</p>
+        <p>Engineers realized that we could generate power without building dams by placing turbines directly into the flow.</p>
+        <p>This approach minimizes environmental impact and civil infrastructure costs.</p>
+    </div>
+
+    <!-- Slide 10: How It Works -->
+    <div class="slide" id="slide-10">
+        <h2>How It Works: The Concept</h2>
+        <p>The operating principle is very similar to a wind turbine.</p>
+        <p>Instead of air moving over blades to create lift and rotation, moving water flows over underwater blades.</p>
+        <p>Since water is much denser than air, even slow-moving water contains a tremendous amount of energy.</p>
+    </div>
+
+    <!-- Slide 11: System Components -->
+    <div class="slide" id="slide-11">
+        <h2>System Components</h2>
+        <p>A typical system consists of three main parts:</p>
+        <div class="box">
+            <p><strong>The Rotor:</strong> Blades that capture the energy from the water.</p>
+            <p><strong>The Generator:</strong> Converts the mechanical rotation into electricity.</p>
+            <p><strong>The Mooring/Foundation:</strong> Holds the turbine in place against the strong current.</p>
+        </div>
+    </div>
+
+    <!-- Slide 12: Horizontal Axis Turbines -->
+    <div class="slide" id="slide-12">
+        <h2>Types of Turbines: Horizontal Axis</h2>
+        <p>Horizontal Axis Hydrokinetic Turbines (HAHT) look like underwater windmills.</p>
+        <p>They are the most common design and are highly efficient.</p>
+        <p>However, they require the mechanism to be oriented into the direction of the flow.</p>
+    </div>
+
+    <!-- Slide 13: Vertical Axis Turbines -->
+    <div class="slide" id="slide-13">
+        <h2>Types of Turbines: Vertical Axis</h2>
+        <p>Vertical Axis Hydrokinetic Turbines (VAHT) look like eggbeaters.</p>
+        <p>Their main advantage is that they can capture flow from any direction without needing to reorient.</p>
+        <p>This makes them ideal for areas where tide directions change frequently.</p>
+    </div>
+
+    <!-- Slide 14: Civil Engineering - Foundations -->
+    <div class="slide" id="slide-14">
+        <h2>Civil Engineering Aspects: Foundations</h2>
+        <p>Securing these turbines is a major civil engineering challenge.</p>
+        <p>Gravity-based foundations use heavy concrete blocks to hold the turbine down by weight.</p>
+        <p>Pile foundations are driven deep into the riverbed or seabed, similar to offshore oil platforms.</p>
+    </div>
+
+    <!-- Slide 15: Civil Engineering - Materials -->
+    <div class="slide" id="slide-15">
+        <h2>Civil Engineering Aspects: Materials</h2>
+        <p>The underwater environment is harsh.</p>
+        <p>Materials must withstand constant moisture, high pressure, and the corrosive effects of saltwater (in marine applications).</p>
+        <p>Special marine-grade concrete and composites are essential for longevity.</p>
+    </div>
+
+    <!-- Slide 16: Environmental Impact -->
+    <div class="slide" id="slide-16">
+        <h2>Environmental Impact</h2>
+        <p>Hydrokinetic systems are considered environmentally friendly.</p>
+        <p>The blades rotate slowly, allowing fish to swim around them safely.</p>
+        <p>There is no thermal pollution, and no emissions are released into the water or air.</p>
+    </div>
+
+    <!-- Slide 17: Potential in Turkey -->
+    <div class="slide" id="slide-17">
+        <h2>Potential in Turkey</h2>
+        <p>Turkey has significant potential for hydrokinetic energy.</p>
+        <p>The Bosphorus and Dardanelles straits have strong, continuous currents that are ideal for energy harvesting.</p>
+        <p>Additionally, the extensive irrigation canal networks in the GAP region offer controlled environments for smaller turbines.</p>
+    </div>
+
+    <!-- Slide 18: Economic Viability -->
+    <div class="slide" id="slide-18">
+        <h2>Economic Viability</h2>
+        <p>Currently, the cost of energy is higher than established technologies like wind or solar.</p>
+        <p>However, as the technology matures and mass production begins, costs are expected to drop significantly.</p>
+        <p>The low maintenance and long lifespan of civil structures contribute to good long-term economics.</p>
+    </div>
+
+    <!-- Slide 19: Future Outlook -->
+    <div class="slide" id="slide-19">
+        <h2>Future Outlook</h2>
+        <p>The future of hydrokinetic energy is promising.</p>
+        <p>Research is focusing on array configurations, where multiple turbines work together like a wind farm.</p>
+        <p>Innovations in materials science and smart grid integration will further enhance their adoption.</p>
+    </div>
+
+    <!-- Slide 20: Conclusion -->
+    <div class="slide" id="slide-20">
+        <h2>Conclusion</h2>
+        <p>Hydrokinetic energy conversion is a vital piece of the sustainable energy puzzle.</p>
+        <p>It offers a reliable, baseload power source that complements intermittent renewables.</p>
+        <p>For civil engineers, it presents exciting challenges in structural design, fluid dynamics, and marine construction.</p>
+        <br>
+        <h3>Thank You</h3>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="left">Group 10 - Khalaj Zahrari & Yağcıoğlu</div>
+        <div class="right">Page <span id="page-num">1</span> of 20</div>
+    </div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<script src="beamer.js"></script>
+</body>
 </html>

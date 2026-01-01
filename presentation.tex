@@ -1,16 +1,21 @@
 \documentclass{beamer}
 \usetheme{Madrid}
-\usecolortheme{beaver} % Academic Red/Grey theme
+\usecolortheme{beaver}
+\usefonttheme{serif} % Use Computer Modern Serif (LaTeX original look)
+\usepackage{lmodern}
 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{tikz}
-\usetikzlibrary{arrows, positioning, calc}
+
+% Global centering for frame content
+\setbeamertemplate{frametitle}[default][center]
+\makeatletter
+\newcommand*{\centerall}{\centering}
+\makeatother
 
 % Presentation Info
 \title[Hydrokinetic Energy]{Hydrokinetic Energy Conversion Systems}
-\subtitle{Analysis, Design, and Implementation Strategies}
+\subtitle{A Historical and Functional Overview}
 \author[Group 10]{Hamidreza Khalaj Zahrari \and Muhammet Yağcıoğlu}
 \institute[IZTECH]{
     \textbf{Izmir Institute of Technology} \\
@@ -20,160 +25,278 @@
 
 \begin{document}
 
-% Slide 1: Title
+% Slide 1
 \begin{frame}
     \titlepage
 \end{frame}
 
-% Slide 2: Introduction
-\begin{frame}{Introduction to Hydrokinetic Energy}
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-            \begin{itemize}
-                \item \textbf{Definition:} A renewable energy technology that converts the kinetic energy of moving water (rivers, tides, ocean currents) into electricity without the need for impoundments (dams).
-                \item \textbf{Core Concept:} Analogous to wind turbines but operating in a fluid medium $\approx 830$ times denser than air.
-                \item \textbf{Significance:} Offers a baseload renewable energy source with minimal civil infrastructure requirements.
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \centering
-            % Simple TikZ Turbine Icon
-            \begin{tikzpicture}[scale=0.8]
-                \draw[thick, fill=gray!10] (0,0) circle (2);
-                \draw[ultra thick, red!70!black] (0,0) -- (0,1.8);
-                \draw[ultra thick, red!70!black] (0,0) -- (1.5,-1);
-                \draw[ultra thick, red!70!black] (0,0) -- (-1.5,-1);
-                \fill[red!70!black] (0,0) circle (0.2);
-                \draw[blue!50, dashed, ->] (-2,1) to[out=-20,in=160] (2,1);
-                \draw[blue!50, dashed, ->] (-2,-0.5) to[out=-20,in=160] (2,-0.5);
-            \end{tikzpicture}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% Slide 3: Working Principle
-\begin{frame}{Working Principle \& System Architecture}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            The system operates on the principle of hydrodynamic lift and drag.
-            \begin{block}{Energy Conversion Equation}
-                \begin{equation}
-                    P = \frac{1}{2} \rho A v^3 C_p \eta
-                \end{equation}
-                \footnotesize{Where $\eta$ represents the mechanical/electrical efficiency.}
-            \end{block}
-            \begin{itemize}
-                \item \textbf{Rotor:} Captures kinetic energy.
-                \item \textbf{Powertrain:} Increases rotational speed.
-                \item \textbf{Generator:} Converts to electricity.
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=\textwidth, height=0.6\textheight, keepaspectratio]{working.png}
-            \vspace{0.2cm}
-            \textit{\footnotesize Figure 1: Schematic representation.}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% Slide 4: Hydrodynamic Analysis (TikZ)
-\begin{frame}{Hydrodynamic Analysis: Velocity Triangles}
-    Understanding the flow interaction at the blade section is critical for efficiency ($C_p$).
-    
-    \begin{center}
-        \begin{tikzpicture}[scale=1.2]
-            % Blade Section
-            \draw[thick, fill=gray!20] (0,0) to[out=30,in=150] (3,0) to[out=180,in=0] (0,0);
-            \node at (1.5, -0.3) {\footnotesize Blade Section};
-            
-            % Vectors
-            \draw[->, ultra thick, blue] (-2,0) -- (0,0) node[midway, above] {$V_{flow}$};
-            \draw[->, ultra thick, red] (0,0) -- (0,-1.5) node[midway, right] {$U = \omega r$};
-            \draw[->, thick, dashed] (-2,0) -- (0,-1.5) node[midway, below left] {$W_{rel}$};
-            
-            % Angle
-            \draw (0.5,0) arc (0:-37:0.5);
-            \node at (0.8,-0.2) {$\alpha$};
-        \end{tikzpicture}
-    \end{center}
-    
-    \begin{itemize}
-        \item $V_{flow}$: Absolute velocity of the water current.
-        \item $U$: Tangential velocity of the blade ($\omega \cdot r$).
-        \item $W_{rel}$: Relative velocity seen by the blade.
-        \item $\alpha$: Angle of attack, determining Lift ($L$) and Drag ($D$) forces.
-    \end{itemize}
-\end{frame}
-
-% Slide 5: Comparison
-\begin{frame}{Comparative Analysis}
-    \begin{table}
-        \begin{tabular}{|l|l|l|}
-            \hline
-            \textbf{Parameter} & \textbf{Conventional Hydro} & \textbf{Hydrokinetic Systems} \\
-            \hline
-            \textbf{Primary Energy} & Potential Head ($H$) & Kinetic Velocity ($v$) \\
-            \hline
-            \textbf{Civil Works} & Extensive (Dams) & Minimal (Anchors) \\
-            \hline
-            \textbf{Environmental} & High Impact & Low Impact \\
-            \hline
-            \textbf{Scalability} & Site-specific & Modular \\
-            \hline
-        \end{tabular}
-    \end{table}
-\end{frame}
-
-% Slide 6: Turkey Context
-\begin{frame}{Implementation Potential in Turkey}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{block}{The Turkish Straits}
-                The Bosphorus and Dardanelles represent a massive energy corridor with continuous two-way currents.
-            \end{block}
-            \begin{block}{Irrigation Networks}
-                DSİ channels in the GAP region offer controlled, debris-free flow environments.
-            \end{block}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \textbf{Current Initiatives}
-            \begin{itemize}
-                \item \textbf{Mavi İda Enerji:} "M30" Turbine (Çanakkale).
-                \item \textbf{TOBB ETÜ:} Micro-hydro and in-pipe systems.
-                \item \textbf{Academic Research:} IZTECH, ITU, and METU are leading CFD and experimental studies.
-            \end{itemize}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% Slide 7: Civil Engineering Challenges
-\begin{frame}{Civil Engineering Challenges}
-    \begin{itemize}
-        \item \textbf{Foundation Systems:}
-        \begin{itemize}
-            \item \textit{Gravity Based Structures (GBS):} Rely on mass.
-            \item \textit{Monopiles:} Driven into the seabed.
-        \end{itemize}
-        \item \textbf{Structural Dynamics:} Fatigue analysis of blades.
-        \item \textbf{Scour Protection:} Preventing seabed erosion.
-    \end{itemize}
-    
-    \begin{alertblock}{Critical Design Factor}
-        The cubic relationship ($P \propto v^3$) implies that structural loads increase drastically with velocity. Safety factors must account for extreme flow events.
-    \end{alertblock}
-\end{frame}
-
-% Slide 8: Conclusion
-\begin{frame}{Conclusion}
-    \begin{itemize}
-        \item Hydrokinetic energy represents a paradigm shift from "static" to "dynamic" hydropower.
-        \item Aligns with sustainable development goals by minimizing civil footprint.
-        \item \textbf{Role of Civil Engineers:} Essential for ensuring the structural integrity, foundation stability, and environmental compatibility.
-    \end{itemize}
-    \vspace{1cm}
+% Slide 2
+\begin{frame}{Introduction}
     \centering
-    \textcolor{darkred}{\textbf{\Large Thank You}}
+    Hydrokinetic energy conversion is a method of generating electricity from the movement of water without the need for large dams or reservoirs.
+    
+    \vspace{1em}
+    
+    Unlike traditional hydropower, which relies on the potential energy of falling water, hydrokinetic systems utilize the kinetic energy of flowing water in rivers, estuaries, and ocean currents.
+\end{frame}
+
+% Slide 3
+\begin{frame}{Why Do We Need Hydrokinetic Energy?}
+    \centering
+    The global demand for energy is rising exponentially.
+    
+    \vspace{1em}
+    
+    Fossil fuels are finite and contribute significantly to global warming and climate change.
+    
+    \vspace{1em}
+    
+    We need sustainable, renewable energy sources that can provide consistent power generation to support modern civilization.
+\end{frame}
+
+% Slide 4
+\begin{frame}{The Limitations of Solar and Wind}
+    \centering
+    While solar and wind energy are popular, they are intermittent.
+    
+    \vspace{1em}
+    
+    The sun does not shine at night, and the wind does not always blow.
+    
+    \vspace{1em}
+    
+    This intermittency requires expensive battery storage solutions or backup power plants to ensure grid stability.
+\end{frame}
+
+% Slide 5
+\begin{frame}{The Advantage of Water Currents}
+    \centering
+    Water currents are remarkably predictable and consistent.
+    
+    \vspace{1em}
+    
+    Tides can be predicted years in advance, and river flows are generally stable or change slowly.
+    
+    \vspace{1em}
+    
+    This predictability makes hydrokinetic energy an excellent candidate for baseload power generation, reducing the need for energy storage.
+\end{frame}
+
+% Slide 6
+\begin{frame}{History of Water Energy: Ancient Times}
+    \centering
+    The use of water energy dates back thousands of years.
+    
+    \vspace{1em}
+    
+    Ancient civilizations, including the Greeks and Romans, used water wheels to grind grain and pump water.
+    
+    \vspace{1em}
+    
+    These early systems were the ancestors of modern hydrokinetic turbines, utilizing the flow of rivers directly.
+\end{frame}
+
+% Slide 7
+\begin{frame}{History: The Industrial Revolution}
+    \centering
+    During the Industrial Revolution, water power was the primary source of energy for factories and textile mills.
+    
+    \vspace{1em}
+    
+    Water wheels evolved into more efficient turbines.
+    
+    \vspace{1em}
+    
+    However, as electricity demand grew, the focus shifted to massive hydroelectric dams that could store vast amounts of water.
+\end{frame}
+
+% Slide 8
+\begin{frame}{The Problem with Large Dams}
+    \centering
+    While effective, large dams have significant environmental downsides.
+    
+    \vspace{1em}
+    
+    They disrupt local ecosystems, block fish migration, and alter sediment transport in rivers.
+    
+    \vspace{1em}
+    
+    Constructing dams also requires displacing communities and flooding large areas of land.
+\end{frame}
+
+% Slide 9
+\begin{frame}{Return to Hydrokinetic Concepts}
+    \centering
+    In recent decades, there has been a renewed interest in "run-of-river" and zero-head systems.
+    
+    \vspace{1em}
+    
+    Engineers realized that we could generate power without building dams by placing turbines directly into the flow.
+    
+    \vspace{1em}
+    
+    This approach minimizes environmental impact and civil infrastructure costs.
+\end{frame}
+
+% Slide 10
+\begin{frame}{How It Works: The Concept}
+    \centering
+    The operating principle is very similar to a wind turbine.
+    
+    \vspace{1em}
+    
+    Instead of air moving over blades to create lift and rotation, moving water flows over underwater blades.
+    
+    \vspace{1em}
+    
+    Since water is much denser than air, even slow-moving water contains a tremendous amount of energy.
+\end{frame}
+
+% Slide 11
+\begin{frame}{System Components}
+    \centering
+    A typical system consists of three main parts:
+    
+    \vspace{1em}
+    
+    \textbf{The Rotor:} Blades that capture the energy from the water.
+    
+    \vspace{1em}
+    
+    \textbf{The Generator:} Converts the mechanical rotation into electricity.
+    
+    \vspace{1em}
+    
+    \textbf{The Mooring/Foundation:} Holds the turbine in place against the strong current.
+\end{frame}
+
+% Slide 12
+\begin{frame}{Types of Turbines: Horizontal Axis}
+    \centering
+    Horizontal Axis Hydrokinetic Turbines (HAHT) look like underwater windmills.
+    
+    \vspace{1em}
+    
+    They are the most common design and are highly efficient.
+    
+    \vspace{1em}
+    
+    However, they require the mechanism to be oriented into the direction of the flow.
+\end{frame}
+
+% Slide 13
+\begin{frame}{Types of Turbines: Vertical Axis}
+    \centering
+    Vertical Axis Hydrokinetic Turbines (VAHT) look like eggbeaters.
+    
+    \vspace{1em}
+    
+    Their main advantage is that they can capture flow from any direction without needing to reorient.
+    
+    \vspace{1em}
+    
+    This makes them ideal for areas where tide directions change frequently.
+\end{frame}
+
+% Slide 14
+\begin{frame}{Civil Engineering Aspects: Foundations}
+    \centering
+    Securing these turbines is a major civil engineering challenge.
+    
+    \vspace{1em}
+    
+    Gravity-based foundations use heavy concrete blocks to hold the turbine down by weight.
+    
+    \vspace{1em}
+    
+    Pile foundations are driven deep into the riverbed or seabed, similar to offshore oil platforms.
+\end{frame}
+
+% Slide 15
+\begin{frame}{Civil Engineering Aspects: Materials}
+    \centering
+    The underwater environment is harsh.
+    
+    \vspace{1em}
+    
+    Materials must withstand constant moisture, high pressure, and the corrosive effects of saltwater (in marine applications).
+    
+    \vspace{1em}
+    
+    Special marine-grade concrete and composites are essential for longevity.
+\end{frame}
+
+% Slide 16
+\begin{frame}{Environmental Impact}
+    \centering
+    Hydrokinetic systems are considered environmentally friendly.
+    
+    \vspace{1em}
+    
+    The blades rotate slowly, allowing fish to swim around them safely.
+    
+    \vspace{1em}
+    
+    There is no thermal pollution, and no emissions are released into the water or air.
+\end{frame}
+
+% Slide 17
+\begin{frame}{Potential in Turkey}
+    \centering
+    Turkey has significant potential for hydrokinetic energy.
+    
+    \vspace{1em}
+    
+    The Bosphorus and Dardanelles straits have strong, continuous currents that are ideal for energy harvesting.
+    
+    \vspace{1em}
+    
+    Additionally, the extensive irrigation canal networks in the GAP region offer controlled environments for smaller turbines.
+\end{frame}
+
+% Slide 18
+\begin{frame}{Economic Viability}
+    \centering
+    Currently, the cost of energy is higher than established technologies like wind or solar.
+    
+    \vspace{1em}
+    
+    However, as the technology matures and mass production begins, costs are expected to drop significantly.
+    
+    \vspace{1em}
+    
+    The low maintenance and long lifespan of civil structures contribute to good long-term economics.
+\end{frame}
+
+% Slide 19
+\begin{frame}{Future Outlook}
+    \centering
+    The future of hydrokinetic energy is promising.
+    
+    \vspace{1em}
+    
+    Research is focusing on array configurations, where multiple turbines work together like a wind farm.
+    
+    \vspace{1em}
+    
+    Innovations in materials science and smart grid integration will further enhance their adoption.
+\end{frame}
+
+% Slide 20
+\begin{frame}{Conclusion}
+    \centering
+    Hydrokinetic energy conversion is a vital piece of the sustainable energy puzzle.
+    
+    \vspace{1em}
+    
+    It offers a reliable, baseload power source that complements intermittent renewables.
+    
+    \vspace{1em}
+    
+    For civil engineers, it presents exciting challenges in structural design, fluid dynamics, and marine construction.
+    
+    \vspace{2em}
+    \textbf{Thank You}
 \end{frame}
 
 \end{document}
