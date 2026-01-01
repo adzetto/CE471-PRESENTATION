@@ -1,11 +1,11 @@
 :root {
   --bg: #ffffff;
-  --text: #000000;
-  --primary: #3333b2; /* Madrid Blue */
-  --secondary: #666699; /* Darker Blue for contrast */
-  --tertiary: #e6e6fa; /* Very Light Blue */
-  --alert: #d9534f;
-  --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --text: #2c3e50;
+  --primary: #a40000; /* Academic Red (IZTECH Style) */
+  --secondary: #4a4a4a; /* Dark Grey */
+  --tertiary: #f2f2f2; /* Light Grey */
+  --alert: #c0392b;
+  --font-main: "Palatino Linotype", "Book Antiqua", Palatino, serif; /* More Academic Font */
   --font-mono: "Courier New", Courier, monospace;
 }
 
