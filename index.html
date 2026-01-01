@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hydrokinetic Energy - Group 10</title>
+    <title>From Hydroelectricity to Hydrokinetic Energy</title>
     <link rel="stylesheet" href="beamer.css">
-    <!-- KaTeX is removed as per request -->
 </head>
 <body>
 
 <div class="slide-container">
-    <!-- Header -->
     <div class="header">
         <div class="left">IZTECH Civil Engineering</div>
-        <div class="right">Hydrokinetic Energy Systems</div>
+        <div class="right">Hydroelectricity to Hydrokinetic Energy</div>
     </div>
 
-    <!-- Slide 1: Title -->
     <div class="slide active" id="slide-1">
-        <h1>Hydrokinetic Energy Conversion Systems</h1>
-        <h2>Analysis, Design, and Implementation Strategies</h2>
+        <h1>From Hydroelectricity to Hydrokinetic Energy</h1>
+        <h2>History, Global Need, and Flow-Based Power</h2>
         <br>
         <p><strong>Group 10</strong></p>
         <p>Hamidreza Khalaj Zahrari</p>
@@ -28,170 +25,254 @@
         <p><em>January 5, 2026</em></p>
     </div>
 
-    <!-- Slide 2: Introduction -->
     <div class="slide" id="slide-2">
-        <h2>Introduction</h2>
-        <p>Hydrokinetic energy conversion is a method of generating electricity from the movement of water without the need for large dams or reservoirs.</p>
-        <p>Unlike traditional hydropower, which relies on the potential energy of falling water, hydrokinetic systems utilize the kinetic energy of flowing water in rivers, estuaries, and ocean currents.</p>
+        <h2>Overview</h2>
+        <ul class="bullets">
+            <li>Energy need and current baseline</li>
+            <li>Hydropower history and modern applications</li>
+            <li>Introducing hydrokinetic energy</li>
+            <li>Key takeaways</li>
+        </ul>
     </div>
 
-    <!-- Slide 3: Why Do We Need It? -->
     <div class="slide" id="slide-3">
-        <h2>Why Do We Need Hydrokinetic Energy?</h2>
-        <p>The global demand for energy is rising exponentially.</p>
-        <p>Fossil fuels are finite and contribute significantly to global warming and climate change.</p>
-        <p>We need sustainable, renewable energy sources that can provide consistent power generation to support modern civilization.</p>
-    </div>
+        <h2>Energy Need: Global Electricity Generation Keeps Rising</h2>
+        <div class="columns">
+            <div class="column text">
+                <ul class="bullets">
+                    <li>Global electricity generation rose from <strong>11,778 TWh</strong> (1990) to <strong>28,927 TWh</strong> (2022).</li>
+                    <li>Demand growth pushes grids to add reliable, low-carbon supply.</li>
+                </ul>
+                <p class="source">Source: Ember data via Our World in Data (2024).</p>
+            </div>
+            <div class="column media">
+                
+<svg class="chart" viewBox="0 0 560 320" role="img" aria-label="Global electricity generation in TWh, 1990 to 2022">
+  <rect x="0" y="0" width="560" height="320" fill="white" />
+  <line x1="60" y1="280.0" x2="540" y2="280.0" stroke="#eee" />
+<line x1="60" y1="198.8" x2="540" y2="198.8" stroke="#eee" />
+<line x1="60" y1="117.5" x2="540" y2="117.5" stroke="#eee" />
+<line x1="60" y1="36.2" x2="540" y2="36.2" stroke="#eee" />
+  <line x1="60" y1="20" x2="60" y2="280" stroke="#333" />
+  <line x1="60" y1="280" x2="540" y2="280" stroke="#333" />
+  <path d="M 60.0,184.3 L 135.0,173.2 L 210.0,155.9 L 285.0,132.7 L 360.0,107.2 L 435.0,84.9 L 510.0,62.7 L 540.0,45.0" fill="none" stroke="#1f77b4" stroke-width="2" />
+  <circle cx="60.0" cy="184.3" r="3" fill="#1f77b4" />
+<circle cx="135.0" cy="173.2" r="3" fill="#1f77b4" />
+<circle cx="210.0" cy="155.9" r="3" fill="#1f77b4" />
+<circle cx="285.0" cy="132.7" r="3" fill="#1f77b4" />
+<circle cx="360.0" cy="107.2" r="3" fill="#1f77b4" />
+<circle cx="435.0" cy="84.9" r="3" fill="#1f77b4" />
+<circle cx="510.0" cy="62.7" r="3" fill="#1f77b4" />
+<circle cx="540.0" cy="45.0" r="3" fill="#1f77b4" />
+  <text x="50" y="280.0" font-size="11" text-anchor="end" dominant-baseline="middle">0k</text>
+<text x="50" y="198.8" font-size="11" text-anchor="end" dominant-baseline="middle">10k</text>
+<text x="50" y="117.5" font-size="11" text-anchor="end" dominant-baseline="middle">20k</text>
+<text x="50" y="36.2" font-size="11" text-anchor="end" dominant-baseline="middle">30k</text>
+  <text x="60.0" y="300" font-size="11" text-anchor="middle">1990</text>
+<text x="135.0" y="300" font-size="11" text-anchor="middle">1995</text>
+<text x="210.0" y="300" font-size="11" text-anchor="middle">2000</text>
+<text x="285.0" y="300" font-size="11" text-anchor="middle">2005</text>
+<text x="360.0" y="300" font-size="11" text-anchor="middle">2010</text>
+<text x="435.0" y="300" font-size="11" text-anchor="middle">2015</text>
+<text x="510.0" y="300" font-size="11" text-anchor="middle">2020</text>
+<text x="540.0" y="300" font-size="11" text-anchor="middle">2022</text>
+  <text x="60" y="12" font-size="12">TWh</text>
+</svg>
 
-    <!-- Slide 4: Limitations of Solar and Wind -->
-    <div class="slide" id="slide-4">
-        <h2>The Limitations of Solar and Wind</h2>
-        <p>While solar and wind energy are popular, they are intermittent.</p>
-        <p>The sun does not shine at night, and the wind does not always blow.</p>
-        <p>This intermittency requires expensive battery storage solutions or backup power plants to ensure grid stability.</p>
-    </div>
-
-    <!-- Slide 5: Advantage of Water Currents -->
-    <div class="slide" id="slide-5">
-        <h2>The Advantage of Water Currents</h2>
-        <p>Water currents are remarkably predictable and consistent.</p>
-        <p>Tides can be predicted years in advance, and river flows are generally stable or change slowly.</p>
-        <p>This predictability makes hydrokinetic energy an excellent candidate for baseload power generation, reducing the need for energy storage.</p>
-    </div>
-
-    <!-- Slide 6: History - Ancient Times -->
-    <div class="slide" id="slide-6">
-        <h2>History of Water Energy: Ancient Times</h2>
-        <p>The use of water energy dates back thousands of years.</p>
-        <p>Ancient civilizations, including the Greeks and Romans, used water wheels to grind grain and pump water.</p>
-        <p>These early systems were the ancestors of modern hydrokinetic turbines, utilizing the flow of rivers directly.</p>
-    </div>
-
-    <!-- Slide 7: History - Industrial Revolution -->
-    <div class="slide" id="slide-7">
-        <h2>History: The Industrial Revolution</h2>
-        <p>During the Industrial Revolution, water power was the primary source of energy for factories and textile mills.</p>
-        <p>Water wheels evolved into more efficient turbines.</p>
-        <p>However, as electricity demand grew, the focus shifted to massive hydroelectric dams that could store vast amounts of water.</p>
-    </div>
-
-    <!-- Slide 8: Problem with Large Dams -->
-    <div class="slide" id="slide-8">
-        <h2>The Problem with Large Dams</h2>
-        <p>While effective, large dams have significant environmental downsides.</p>
-        <p>They disrupt local ecosystems, block fish migration, and alter sediment transport in rivers.</p>
-        <p>Constructing dams also requires displacing communities and flooding large areas of land.</p>
-    </div>
-
-    <!-- Slide 9: Return to Hydrokinetic Concepts -->
-    <div class="slide" id="slide-9">
-        <h2>Return to Hydrokinetic Concepts</h2>
-        <p>In recent decades, there has been a renewed interest in "run-of-river" and zero-head systems.</p>
-        <p>Engineers realized that we could generate power without building dams by placing turbines directly into the flow.</p>
-        <p>This approach minimizes environmental impact and civil infrastructure costs.</p>
-    </div>
-
-    <!-- Slide 10: How It Works -->
-    <div class="slide" id="slide-10">
-        <h2>How It Works: The Concept</h2>
-        <p>The operating principle is very similar to a wind turbine.</p>
-        <p>Instead of air moving over blades to create lift and rotation, moving water flows over underwater blades.</p>
-        <p>Since water is much denser than air, even slow-moving water contains a tremendous amount of energy.</p>
-    </div>
-
-    <!-- Slide 11: System Components -->
-    <div class="slide" id="slide-11">
-        <h2>System Components</h2>
-        <p>A typical system consists of three main parts:</p>
-        <div class="box">
-            <p><strong>The Rotor:</strong> Blades that capture the energy from the water.</p>
-            <p><strong>The Generator:</strong> Converts the mechanical rotation into electricity.</p>
-            <p><strong>The Mooring/Foundation:</strong> Holds the turbine in place against the strong current.</p>
+            </div>
         </div>
     </div>
 
-    <!-- Slide 12: Horizontal Axis Turbines -->
-    <div class="slide" id="slide-12">
-        <h2>Types of Turbines: Horizontal Axis</h2>
-        <p>Horizontal Axis Hydrokinetic Turbines (HAHT) look like underwater windmills.</p>
-        <p>They are the most common design and are highly efficient.</p>
-        <p>However, they require the mechanism to be oriented into the direction of the flow.</p>
+    <div class="slide" id="slide-4">
+        <h2>What We Have: Hydropower's Share Is Shrinking</h2>
+        <div class="columns">
+            <div class="column text">
+                <ul class="bullets">
+                    <li>Hydropower generation increased to <strong>4,321 TWh</strong> in 2022.</li>
+                    <li>Its global share fell from <strong>18.3%</strong> (1990) to <strong>14.9%</strong> (2022).</li>
+                </ul>
+                <p class="source">Source: Ember data via Our World in Data (2024).</p>
+            </div>
+            <div class="column media">
+                
+<svg class="chart" viewBox="0 0 560 320" role="img" aria-label="Hydropower share of global electricity, 1990 to 2022">
+  <rect x="0" y="0" width="560" height="320" fill="white" />
+  <line x1="60" y1="280.0" x2="540" y2="280.0" stroke="#eee" />
+<line x1="60" y1="215.0" x2="540" y2="215.0" stroke="#eee" />
+<line x1="60" y1="150.0" x2="540" y2="150.0" stroke="#eee" />
+<line x1="60" y1="85.0" x2="540" y2="85.0" stroke="#eee" />
+<line x1="60" y1="20.0" x2="540" y2="20.0" stroke="#eee" />
+  <line x1="60" y1="20" x2="60" y2="280" stroke="#333" />
+  <line x1="60" y1="280" x2="540" y2="280" stroke="#333" />
+  <rect x="84.0" y="41.7" width="72.0" height="238.3" fill="#b22222" /> <rect x="204.0" y="56.3" width="72.0" height="223.7" fill="#b22222" /> <rect x="324.0" y="70.4" width="72.0" height="209.6" fill="#b22222" /> <rect x="444.0" y="85.8" width="72.0" height="194.2" fill="#b22222" />
+  <text x="120.0" y="35.7" font-size="11" text-anchor="middle">18.33</text> <text x="240.0" y="50.3" font-size="11" text-anchor="middle">17.21</text> <text x="360.0" y="64.4" font-size="11" text-anchor="middle">16.12</text> <text x="480.0" y="79.8" font-size="11" text-anchor="middle">14.94</text>
+  <text x="50" y="280.0" font-size="11" text-anchor="end" dominant-baseline="middle">0</text>
+<text x="50" y="215.0" font-size="11" text-anchor="end" dominant-baseline="middle">5</text>
+<text x="50" y="150.0" font-size="11" text-anchor="end" dominant-baseline="middle">10</text>
+<text x="50" y="85.0" font-size="11" text-anchor="end" dominant-baseline="middle">15</text>
+<text x="50" y="20.0" font-size="11" text-anchor="end" dominant-baseline="middle">20</text>
+  <text x="120.0" y="300" font-size="11" text-anchor="middle">1990</text> <text x="240.0" y="300" font-size="11" text-anchor="middle">2000</text> <text x="360.0" y="300" font-size="11" text-anchor="middle">2010</text> <text x="480.0" y="300" font-size="11" text-anchor="middle">2022</text>
+  <text x="60" y="12" font-size="12">% of global electricity</text>
+</svg>
+
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 13: Vertical Axis Turbines -->
-    <div class="slide" id="slide-13">
-        <h2>Types of Turbines: Vertical Axis</h2>
-        <p>Vertical Axis Hydrokinetic Turbines (VAHT) look like eggbeaters.</p>
-        <p>Their main advantage is that they can capture flow from any direction without needing to reorient.</p>
-        <p>This makes them ideal for areas where tide directions change frequently.</p>
+    <div class="slide" id="slide-5">
+        <h2>The First Commercial Hydroelectric Plant (1882)</h2>
+        <div class="columns">
+            <div class="column text">
+                <ul class="bullets">
+                    <li>Appleton, Wisconsin: waterwheel to leather belts to dynamo.</li>
+                    <li>Powered early electric lighting for local buildings.</li>
+                    <li>Lester Pelton later improved turbine efficiency.</li>
+                </ul>
+                <p class="source">Sources: Wikipedia contributors (n.d.-a, n.d.-b).</p>
+            </div>
+            <div class="column media">
+                <img class="figure-img" src="1.png" alt="Appleton hydroelectric plant diagram">
+                <div class="caption">Figure 1. The first commercial hydroelectric plant in Appleton, Wisconsin (1882).</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 14: Civil Engineering - Foundations -->
-    <div class="slide" id="slide-14">
-        <h2>Civil Engineering Aspects: Foundations</h2>
-        <p>Securing these turbines is a major civil engineering challenge.</p>
-        <p>Gravity-based foundations use heavy concrete blocks to hold the turbine down by weight.</p>
-        <p>Pile foundations are driven deep into the riverbed or seabed, similar to offshore oil platforms.</p>
+    <div class="slide" id="slide-6">
+        <h2>Pumped Storage and Diverse Global Uses</h2>
+        <div class="columns">
+            <div class="column text">
+                <ul class="bullets">
+                    <li>Pumped storage shifts energy by pumping water uphill during surplus power.</li>
+                    <li>Acts as grid-scale energy storage for daily and weekly balancing.</li>
+                    <li>Run-of-river and tidal barrages expand hydropower with less impoundment.</li>
+                </ul>
+                <p class="source">Sources: Yang &amp; Jackson (2011); Wikipedia contributors (n.d.-c).</p>
+            </div>
+            <div class="column media">
+                <img class="figure-img" src="2.png" alt="Pumped storage and low-impact hydro diagram">
+                <div class="caption">Figure 2. Pumped storage as a grid-scale battery with low-impact hydro options.</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 15: Civil Engineering - Materials -->
-    <div class="slide" id="slide-15">
-        <h2>Civil Engineering Aspects: Materials</h2>
-        <p>The underwater environment is harsh.</p>
-        <p>Materials must withstand constant moisture, high pressure, and the corrosive effects of saltwater (in marine applications).</p>
-        <p>Special marine-grade concrete and composites are essential for longevity.</p>
+    <div class="slide" id="slide-7">
+        <h2>Massive Modern Arch-Gravity Dam</h2>
+        <div class="columns">
+            <div class="column text">
+                <ul class="bullets">
+                    <li>Arch-gravity dams combine weight and arch action to resist water pressure.</li>
+                    <li>Kaplan turbines suit high-flow, low-head rivers common in mega-projects.</li>
+                    <li>Projects provide power, flood control, and irrigation water.</li>
+                </ul>
+                <p class="source">Source: Wikipedia contributors (n.d.-d).</p>
+            </div>
+            <div class="column media">
+                <img class="figure-img" src="3.png" alt="Arch-gravity dam with Kaplan turbine">
+                <div class="caption">Figure 3. A modern arch-gravity dam with Kaplan turbine layout.</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 16: Environmental Impact -->
-    <div class="slide" id="slide-16">
-        <h2>Environmental Impact</h2>
-        <p>Hydrokinetic systems are considered environmentally friendly.</p>
-        <p>The blades rotate slowly, allowing fish to swim around them safely.</p>
-        <p>There is no thermal pollution, and no emissions are released into the water or air.</p>
+    <div class="slide" id="slide-8">
+        <h2>Introducing Hydrokinetic Energy: Harnessing Flow, Not Fall</h2>
+        <div class="columns">
+            <div class="column text">
+                <div class="box">
+                    Hydrokinetic energy converts the <strong>kinetic energy</strong> from flowing water
+                    (rivers, tides, currents) into electrical power, <strong>without requiring large dams</strong>
+                    to create an elevation difference (head).
+                </div>
+                <ul class="bullets">
+                    <li>Sits between traditional hydropower and marine energy.</li>
+                    <li>Uses free-flowing water with minimal civil works.</li>
+                    <li>Ideal for canals, straits, and run-of-river corridors.</li>
+                </ul>
+                <p class="source">Source: Khan, Iqbal, &amp; Quaicoe (2008).</p>
+            </div>
+            <div class="column media">
+                <img class="figure-img" src="w.png" alt="Hydrokinetic energy illustration">
+                <div class="caption">Figure 4. Hydrokinetic energy: flow-based conversion without dams.</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 17: Potential in Turkey -->
-    <div class="slide" id="slide-17">
-        <h2>Potential in Turkey</h2>
-        <p>Turkey has significant potential for hydrokinetic energy.</p>
-        <p>The Bosphorus and Dardanelles straits have strong, continuous currents that are ideal for energy harvesting.</p>
-        <p>Additionally, the extensive irrigation canal networks in the GAP region offer controlled environments for smaller turbines.</p>
+    <div class="slide" id="slide-9">
+        <h2>Power From Moving Water</h2>
+        <div class="columns">
+            <div class="column text">
+                <p class="equation">P = 1/2 &rho; A v^3 &eta;</p>
+                <ul class="bullets">
+                    <li>&rho;: water density (about 1000 kg/m^3)</li>
+                    <li>A: rotor area</li>
+                    <li>v: flow velocity</li>
+                    <li>&eta;: overall efficiency</li>
+                </ul>
+                <p class="source">Doubling velocity increases power by 2^3 = 8 times.</p>
+            </div>
+            <div class="column media">
+                
+<svg class="chart" viewBox="0 0 560 320" role="img" aria-label="Power density versus flow velocity">
+  <rect x="0" y="0" width="560" height="320" fill="white" />
+  <line x1="60" y1="280.0" x2="540" y2="280.0" stroke="#eee" />
+<line x1="60" y1="215.0" x2="540" y2="215.0" stroke="#eee" />
+<line x1="60" y1="150.0" x2="540" y2="150.0" stroke="#eee" />
+<line x1="60" y1="85.0" x2="540" y2="85.0" stroke="#eee" />
+<line x1="60" y1="20.0" x2="540" y2="20.0" stroke="#eee" />
+  <line x1="60" y1="20" x2="60" y2="280" stroke="#333" />
+  <line x1="60" y1="280" x2="540" y2="280" stroke="#333" />
+  <path d="M 60.0,280.0 L 75.0,280.0 L 90.0,279.9 L 105.0,279.8 L 120.0,279.6 L 135.0,279.2 L 150.0,278.6 L 165.0,277.8 L 180.0,276.7 L 195.0,275.3 L 210.0,273.5 L 225.0,271.3 L 240.0,268.8 L 255.0,265.7 L 270.0,262.2 L 285.0,258.1 L 300.0,253.4 L 315.0,248.1 L 330.0,242.1 L 345.0,235.4 L 360.0,228.0 L 375.0,219.8 L 390.0,210.8 L 405.0,200.9 L 420.0,190.1 L 435.0,178.4 L 450.0,165.8 L 465.0,152.1 L 480.0,137.3 L 495.0,121.5 L 510.0,104.5 L 525.0,86.4 L 540.0,67.0" fill="none" stroke="#1f77b4" stroke-width="2" />
+  <text x="50" y="280.0" font-size="11" text-anchor="end" dominant-baseline="middle">0</text>
+<text x="50" y="215.0" font-size="11" text-anchor="end" dominant-baseline="middle">2</text>
+<text x="50" y="150.0" font-size="11" text-anchor="end" dominant-baseline="middle">4</text>
+<text x="50" y="85.0" font-size="11" text-anchor="end" dominant-baseline="middle">6</text>
+<text x="50" y="20.0" font-size="11" text-anchor="end" dominant-baseline="middle">8</text>
+  <text x="60.0" y="300" font-size="11" text-anchor="middle">0</text>
+<text x="210.0" y="300" font-size="11" text-anchor="middle">1</text>
+<text x="360.0" y="300" font-size="11" text-anchor="middle">2</text>
+<text x="510.0" y="300" font-size="11" text-anchor="middle">3</text>
+  <text x="60" y="12" font-size="12">kW/m^2</text>
+  <text x="300" y="315" font-size="12" text-anchor="middle">Flow velocity (m/s)</text>
+</svg>
+
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 18: Economic Viability -->
-    <div class="slide" id="slide-18">
-        <h2>Economic Viability</h2>
-        <p>Currently, the cost of energy is higher than established technologies like wind or solar.</p>
-        <p>However, as the technology matures and mass production begins, costs are expected to drop significantly.</p>
-        <p>The low maintenance and long lifespan of civil structures contribute to good long-term economics.</p>
+    <div class="slide" id="slide-10">
+        <h2>Key Takeaways</h2>
+        <ul class="bullets">
+            <li>Global electricity demand keeps growing; firm renewables are critical.</li>
+            <li>Hydropower output rose, but its global share has declined.</li>
+            <li>Legacy hydro spans early waterwheels, pumped storage, and mega-dams.</li>
+            <li>Hydrokinetic systems extend hydropower into low-impact, flow-only sites.</li>
+        </ul>
     </div>
 
-    <!-- Slide 19: Future Outlook -->
-    <div class="slide" id="slide-19">
-        <h2>Future Outlook</h2>
-        <p>The future of hydrokinetic energy is promising.</p>
-        <p>Research is focusing on array configurations, where multiple turbines work together like a wind farm.</p>
-        <p>Innovations in materials science and smart grid integration will further enhance their adoption.</p>
+    <div class="slide top" id="slide-11">
+        <h2>References (APA 7)</h2>
+        <div class="refs">
+            <p>Ember. (2024). <em>Electricity generation by source (TWh)</em> [Data set]. Our World in Data. https://ourworldindata.org/grapher/electricity-prod-source-stacked.csv</p>
+            <p>Khan, M. J., Iqbal, M. T., &amp; Quaicoe, J. E. (2008). River current energy conversion systems: Progress, prospects and challenges. <em>Renewable and Sustainable Energy Reviews, 12</em>(8), 2177-2193. https://doi.org/10.1016/j.rser.2007.04.016</p>
+            <p>Yang, C.-J., &amp; Jackson, R. B. (2011). Opportunities and barriers to pumped-hydro energy storage in the United States. <em>Renewable and Sustainable Energy Reviews, 15</em>(1), 839-844. https://doi.org/10.1016/j.rser.2010.09.020</p>
+        </div>
     </div>
 
-    <!-- Slide 20: Conclusion -->
-    <div class="slide" id="slide-20">
-        <h2>Conclusion</h2>
-        <p>Hydrokinetic energy conversion is a vital piece of the sustainable energy puzzle.</p>
-        <p>It offers a reliable, baseload power source that complements intermittent renewables.</p>
-        <p>For civil engineers, it presents exciting challenges in structural design, fluid dynamics, and marine construction.</p>
-        <br>
-        <h3>Thank You</h3>
+    <div class="slide top" id="slide-12">
+        <h2>References (APA 7)</h2>
+        <div class="refs">
+            <p>Wikipedia contributors. (n.d.-a). <em>Vulcan Street Plant</em>. In <em>Wikipedia</em>. Retrieved January 1, 2026, from https://en.wikipedia.org/wiki/Vulcan_Street_Plant</p>
+            <p>Wikipedia contributors. (n.d.-b). <em>Pelton wheel</em>. In <em>Wikipedia</em>. Retrieved January 1, 2026, from https://en.wikipedia.org/wiki/Pelton_wheel</p>
+            <p>Wikipedia contributors. (n.d.-c). <em>Pumped-storage hydroelectricity</em>. In <em>Wikipedia</em>. Retrieved January 1, 2026, from https://en.wikipedia.org/wiki/Pumped-storage_hydroelectricity</p>
+            <p>Wikipedia contributors. (n.d.-d). <em>Kaplan turbine</em>. In <em>Wikipedia</em>. Retrieved January 1, 2026, from https://en.wikipedia.org/wiki/Kaplan_turbine</p>
+        </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-        <div class="left">Group 10 - Khalaj Zahrari & Yağcıoğlu</div>
-        <div class="right">Page <span id="page-num">1</span> of 20</div>
+        <div class="left">Group 10 - Khalaj Zahrari &amp; Yağcıoğlu</div>
+        <div class="right">Page <span id="page-num">1</span> of 12</div>
     </div>
 </div>
 
-<!-- Controls -->
 <div class="controls">
     <button onclick="prevSlide()">Previous</button>
     <button onclick="nextSlide()">Next</button>

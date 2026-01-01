@@ -162,3 +162,79 @@ button {
     width: 100%;
     max-width: 700px;
 }
+
+/* Layout helpers */
+.columns {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    flex: 1;
+    min-width: 0;
+}
+
+.column.text {
+    text-align: left;
+}
+
+.column.media {
+    text-align: center;
+}
+
+.slide.top {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Lists with bullets */
+.bullets {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+    text-align: left;
+}
+
+.bullets li {
+    margin-bottom: 0.6rem;
+}
+
+/* Figures and charts */
+.figure-img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.caption,
+.source {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+.caption {
+    font-style: italic;
+}
+
+.chart {
+    width: 100%;
+    height: auto;
+    max-width: 520px;
+    border: 1px solid #eee;
+    background: #fff;
+}
+
+.equation {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.refs {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 900px;
+}

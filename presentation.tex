@@ -1,22 +1,22 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usetheme{Madrid}
 \usecolortheme{beaver}
-\usefonttheme{serif} % Use Computer Modern Serif (LaTeX original look)
+\usefonttheme{serif}
 \usepackage{lmodern}
 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{amsmath}
 
-% Global centering for frame content
+% Center frame titles
 \setbeamertemplate{frametitle}[default][center]
-\makeatletter
-\newcommand*{\centerall}{\centering}
-\makeatother
 
 % Presentation Info
-\title[Hydrokinetic Energy]{Hydrokinetic Energy Conversion Systems}
-\subtitle{A Historical and Functional Overview}
-\author[Group 10]{Hamidreza Khalaj Zahrari \and Muhammet Yağcıoğlu}
+\title[Hydrokinetic Energy]{From Hydroelectricity to Hydrokinetic Energy}
+\subtitle{History, Global Need, and Flow-Based Power}
+\author[Group 10]{Hamidreza Khalaj Zahrari \and Muhammet Ya\u{g}c\i o\u{g}lu}
 \institute[IZTECH]{
     \textbf{Izmir Institute of Technology} \\
     Civil Engineering Department
@@ -25,278 +25,242 @@
 
 \begin{document}
 
-% Slide 1
+%--- TITLE PAGE ---
 \begin{frame}
     \titlepage
 \end{frame}
 
-% Slide 2
-\begin{frame}{Introduction}
-    \centering
-    Hydrokinetic energy conversion is a method of generating electricity from the movement of water without the need for large dams or reservoirs.
-    
-    \vspace{1em}
-    
-    Unlike traditional hydropower, which relies on the potential energy of falling water, hydrokinetic systems utilize the kinetic energy of flowing water in rivers, estuaries, and ocean currents.
+%--- TOC ---
+\begin{frame}{Overview}
+    \tableofcontents
 \end{frame}
 
-% Slide 3
-\begin{frame}{Why Do We Need Hydrokinetic Energy?}
-    \centering
-    The global demand for energy is rising exponentially.
-    
-    \vspace{1em}
-    
-    Fossil fuels are finite and contribute significantly to global warming and climate change.
-    
-    \vspace{1em}
-    
-    We need sustainable, renewable energy sources that can provide consistent power generation to support modern civilization.
+\section{Energy Need \& Current Baseline}
+
+\begin{frame}{Energy Need: Global Electricity Generation Keeps Rising}
+    \begin{columns}[T]
+        \column{0.42\textwidth}
+            \begin{itemize}
+                \item Global electricity generation rose from \textbf{11{,}778 TWh} (1990) to \textbf{28{,}927 TWh} (2022).
+                \item Demand growth pushes grids to add reliable, low-carbon supply.
+            \end{itemize}
+            \vspace{0.5em}
+            {\scriptsize \textit{Source: Ember data via Our World in Data (2024).}}
+        \column{0.58\textwidth}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=\textwidth,
+                    height=0.55\textheight,
+                    ymin=0, ymax=32000,
+                    ylabel={TWh},
+                    xlabel={Year},
+                    xtick={1990,1995,2000,2005,2010,2015,2020,2022},
+                    xticklabel style={rotate=45, anchor=east},
+                    grid=both,
+                    major grid style={line width=.2pt,draw=gray!30},
+                    minor grid style={line width=.1pt,draw=gray!15},
+                ]
+                    \addplot[mark=*, thick, color=blue!70] coordinates {
+                        (1990,11778.3)
+                        (1995,13150.22)
+                        (2000,15278.69)
+                        (2005,18133.84)
+                        (2010,21264.68)
+                        (2015,24014.71)
+                        (2020,26742.91)
+                        (2022,28926.93)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+    \end{columns}
 \end{frame}
 
-% Slide 4
-\begin{frame}{The Limitations of Solar and Wind}
-    \centering
-    While solar and wind energy are popular, they are intermittent.
-    
-    \vspace{1em}
-    
-    The sun does not shine at night, and the wind does not always blow.
-    
-    \vspace{1em}
-    
-    This intermittency requires expensive battery storage solutions or backup power plants to ensure grid stability.
+\begin{frame}{What We Have: Hydropower's Share Is Shrinking}
+    \begin{columns}[T]
+        \column{0.45\textwidth}
+            \begin{itemize}
+                \item Hydropower generation increased to \textbf{4{,}321 TWh} in 2022.
+                \item Yet its global share fell from \textbf{18.3\%} (1990) to \textbf{14.9\%} (2022).
+            \end{itemize}
+            \vspace{0.5em}
+            {\scriptsize \textit{Source: Ember data via Our World in Data (2024).}}
+        \column{0.55\textwidth}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=\textwidth,
+                    height=0.55\textheight,
+                    ybar,
+                    ymin=0, ymax=20,
+                    ylabel={Share of global electricity (\%)},
+                    symbolic x coords={1990,2000,2010,2022},
+                    xtick=data,
+                    nodes near coords,
+                    nodes near coords style={font=\scriptsize, rotate=90, anchor=west},
+                    bar width=16pt,
+                    grid=both,
+                    major grid style={line width=.2pt,draw=gray!30},
+                    minor grid style={line width=.1pt,draw=gray!15},
+                ]
+                    \addplot[fill=red!70] coordinates {
+                        (1990,18.33)
+                        (2000,17.21)
+                        (2010,16.12)
+                        (2022,14.94)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+    \end{columns}
 \end{frame}
 
-% Slide 5
-\begin{frame}{The Advantage of Water Currents}
-    \centering
-    Water currents are remarkably predictable and consistent.
-    
-    \vspace{1em}
-    
-    Tides can be predicted years in advance, and river flows are generally stable or change slowly.
-    
-    \vspace{1em}
-    
-    This predictability makes hydrokinetic energy an excellent candidate for baseload power generation, reducing the need for energy storage.
+\section{Hydropower: History \& Modern Applications}
+
+\begin{frame}{The First Commercial Hydroelectric Plant (1882)}
+    \begin{columns}[T]
+        \column{0.42\textwidth}
+            \begin{itemize}
+                \item Appleton, Wisconsin: waterwheel \(\rightarrow\) leather belts \(\rightarrow\) dynamo.
+                \item Powered early electric lighting for local buildings.
+                \item Lester Pelton later improved turbine efficiency.
+            \end{itemize}
+            \vspace{0.5em}
+            {\scriptsize \textit{Sources: Wikipedia contributors (n.d.-a, n.d.-b).}}
+        \column{0.58\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{1.png}
+            \vspace{0.2em}
+
+            {\scriptsize \textit{Figure 1. The first commercial hydroelectric plant in Appleton, Wisconsin (1882).}}
+    \end{columns}
 \end{frame}
 
-% Slide 6
-\begin{frame}{History of Water Energy: Ancient Times}
-    \centering
-    The use of water energy dates back thousands of years.
-    
-    \vspace{1em}
-    
-    Ancient civilizations, including the Greeks and Romans, used water wheels to grind grain and pump water.
-    
-    \vspace{1em}
-    
-    These early systems were the ancestors of modern hydrokinetic turbines, utilizing the flow of rivers directly.
+\begin{frame}{Pumped Storage and Diverse Global Uses}
+    \begin{columns}[T]
+        \column{0.42\textwidth}
+            \begin{itemize}
+                \item Pumped storage shifts energy by pumping water uphill during surplus power.
+                \item Acts as grid-scale energy storage for daily and weekly balancing.
+                \item Run-of-river and tidal barrages expand hydropower with less impoundment.
+            \end{itemize}
+            \vspace{0.5em}
+            {\scriptsize \textit{Sources: Yang \& Jackson (2011); Wikipedia contributors (n.d.-c).}}
+        \column{0.58\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{2.png}
+            \vspace{0.2em}
+
+            {\scriptsize \textit{Figure 2. Pumped storage as a "battery" with other low-impact hydro options.}}
+    \end{columns}
 \end{frame}
 
-% Slide 7
-\begin{frame}{History: The Industrial Revolution}
-    \centering
-    During the Industrial Revolution, water power was the primary source of energy for factories and textile mills.
-    
-    \vspace{1em}
-    
-    Water wheels evolved into more efficient turbines.
-    
-    \vspace{1em}
-    
-    However, as electricity demand grew, the focus shifted to massive hydroelectric dams that could store vast amounts of water.
+\begin{frame}{Massive Modern Arch-Gravity Dam}
+    \begin{columns}[T]
+        \column{0.42\textwidth}
+            \begin{itemize}
+                \item Arch-gravity dams combine weight and arch action to resist water pressure.
+                \item Kaplan turbines suit high-flow, low-head rivers common in mega-projects.
+                \item Projects provide power, flood control, and irrigation water.
+            \end{itemize}
+            \vspace{0.5em}
+            {\scriptsize \textit{Source: Wikipedia contributors (n.d.-d).}}
+        \column{0.58\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{3.png}
+            \vspace{0.2em}
+
+            {\scriptsize \textit{Figure 3. A modern arch-gravity dam with Kaplan turbine layout.}}
+    \end{columns}
 \end{frame}
 
-% Slide 8
-\begin{frame}{The Problem with Large Dams}
-    \centering
-    While effective, large dams have significant environmental downsides.
-    
-    \vspace{1em}
-    
-    They disrupt local ecosystems, block fish migration, and alter sediment transport in rivers.
-    
-    \vspace{1em}
-    
-    Constructing dams also requires displacing communities and flooding large areas of land.
+\section{Introducing Hydrokinetic Energy}
+
+\begin{frame}{Introducing Hydrokinetic Energy: Harnessing Flow, Not Fall}
+    \begin{columns}[T]
+        \column{0.52\textwidth}
+            \begin{block}{Hydrokinetic Energy}
+                Hydrokinetic energy converts the \textbf{kinetic energy} from flowing water
+                (rivers, tides, currents) into electrical power, \textbf{without requiring large dams}
+                to create an elevation difference (head).
+            \end{block}
+            \vspace{0.3em}
+            \begin{itemize}
+                \item Sits between traditional hydropower and marine energy.
+                \item Uses free-flowing water with minimal civil works.
+                \item Ideal for canals, straits, and run-of-river corridors.
+            \end{itemize}
+            \vspace{0.3em}
+            {\scriptsize \textit{Source: Khan, Iqbal, \& Quaicoe (2008).}}
+        \column{0.48\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{w.png}
+            \vspace{0.2em}
+
+            {\scriptsize \textit{Figure 4. Hydrokinetic energy: flow-based conversion without dams.}}
+    \end{columns}
 \end{frame}
 
-% Slide 9
-\begin{frame}{Return to Hydrokinetic Concepts}
-    \centering
-    In recent decades, there has been a renewed interest in "run-of-river" and zero-head systems.
-    
-    \vspace{1em}
-    
-    Engineers realized that we could generate power without building dams by placing turbines directly into the flow.
-    
-    \vspace{1em}
-    
-    This approach minimizes environmental impact and civil infrastructure costs.
+\begin{frame}{Power From Moving Water}
+    \begin{columns}[T]
+        \column{0.48\textwidth}
+            \textbf{Kinetic Power Equation}
+            \begin{equation*}
+                P = \frac{1}{2} \rho A v^3 \eta
+            \end{equation*}
+            \small
+            \begin{itemize}
+                \item \(\rho\): water density (\(\approx 1000\,kg/m^3\))
+                \item \(A\): rotor area
+                \item \(v\): flow velocity
+                \item \(\eta\): overall efficiency
+            \end{itemize}
+            \vspace{0.5em}
+            {\scriptsize \textit{Doubling velocity increases power by \(2^3=8\) times.}}
+        \column{0.52\textwidth}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=\textwidth,
+                    height=0.55\textheight,
+                    xlabel={Flow velocity (m/s)},
+                    ylabel={Power density (kW/m$^2$)},
+                    ymin=0, ymax=20,
+                    domain=0:3.2,
+                    samples=80,
+                    grid=both,
+                    major grid style={line width=.2pt,draw=gray!30},
+                    minor grid style={line width=.1pt,draw=gray!15},
+                ]
+                    % Assumes rho=1000 kg/m^3, eta=0.4, A=1 m^2
+                    \addplot[thick, color=blue!70] {0.5*1000*0.4*x^3/1000};
+                \end{axis}
+            \end{tikzpicture}
+    \end{columns}
 \end{frame}
 
-% Slide 10
-\begin{frame}{How It Works: The Concept}
-    \centering
-    The operating principle is very similar to a wind turbine.
-    
-    \vspace{1em}
-    
-    Instead of air moving over blades to create lift and rotation, moving water flows over underwater blades.
-    
-    \vspace{1em}
-    
-    Since water is much denser than air, even slow-moving water contains a tremendous amount of energy.
+\section{Takeaways}
+
+\begin{frame}{Key Takeaways}
+    \begin{itemize}
+        \item Global electricity demand keeps growing; firm renewables are critical.
+        \item Hydropower output rose, but its global share has declined.
+        \item Legacy hydro spans early waterwheels, pumped storage, and mega-dams.
+        \item Hydrokinetic systems extend hydropower into low-impact, flow-only sites.
+    \end{itemize}
 \end{frame}
 
-% Slide 11
-\begin{frame}{System Components}
-    \centering
-    A typical system consists of three main parts:
-    
-    \vspace{1em}
-    
-    \textbf{The Rotor:} Blades that capture the energy from the water.
-    
-    \vspace{1em}
-    
-    \textbf{The Generator:} Converts the mechanical rotation into electricity.
-    
-    \vspace{1em}
-    
-    \textbf{The Mooring/Foundation:} Holds the turbine in place against the strong current.
-\end{frame}
+\begin{frame}[allowframebreaks]{References (APA 7)}
+    \small
+    Ember. (2024). \textit{Electricity generation by source (TWh)} [Data set]. Our World in Data. \url{https://ourworldindata.org/grapher/electricity-prod-source-stacked.csv}
 
-% Slide 12
-\begin{frame}{Types of Turbines: Horizontal Axis}
-    \centering
-    Horizontal Axis Hydrokinetic Turbines (HAHT) look like underwater windmills.
-    
-    \vspace{1em}
-    
-    They are the most common design and are highly efficient.
-    
-    \vspace{1em}
-    
-    However, they require the mechanism to be oriented into the direction of the flow.
-\end{frame}
+    Khan, M. J., Iqbal, M. T., \& Quaicoe, J. E. (2008). River current energy conversion systems: Progress, prospects and challenges. \textit{Renewable and Sustainable Energy Reviews, 12}(8), 2177--2193. \url{https://doi.org/10.1016/j.rser.2007.04.016}
 
-% Slide 13
-\begin{frame}{Types of Turbines: Vertical Axis}
-    \centering
-    Vertical Axis Hydrokinetic Turbines (VAHT) look like eggbeaters.
-    
-    \vspace{1em}
-    
-    Their main advantage is that they can capture flow from any direction without needing to reorient.
-    
-    \vspace{1em}
-    
-    This makes them ideal for areas where tide directions change frequently.
-\end{frame}
+    Yang, C.-J., \& Jackson, R. B. (2011). Opportunities and barriers to pumped-hydro energy storage in the United States. \textit{Renewable and Sustainable Energy Reviews, 15}(1), 839--844. \url{https://doi.org/10.1016/j.rser.2010.09.020}
 
-% Slide 14
-\begin{frame}{Civil Engineering Aspects: Foundations}
-    \centering
-    Securing these turbines is a major civil engineering challenge.
-    
-    \vspace{1em}
-    
-    Gravity-based foundations use heavy concrete blocks to hold the turbine down by weight.
-    
-    \vspace{1em}
-    
-    Pile foundations are driven deep into the riverbed or seabed, similar to offshore oil platforms.
-\end{frame}
+    Wikipedia contributors. (n.d.-a). \textit{Vulcan Street Plant}. In \textit{Wikipedia}. Retrieved January 1, 2026, from \url{https://en.wikipedia.org/wiki/Vulcan_Street_Plant}
 
-% Slide 15
-\begin{frame}{Civil Engineering Aspects: Materials}
-    \centering
-    The underwater environment is harsh.
-    
-    \vspace{1em}
-    
-    Materials must withstand constant moisture, high pressure, and the corrosive effects of saltwater (in marine applications).
-    
-    \vspace{1em}
-    
-    Special marine-grade concrete and composites are essential for longevity.
-\end{frame}
+    Wikipedia contributors. (n.d.-b). \textit{Pelton wheel}. In \textit{Wikipedia}. Retrieved January 1, 2026, from \url{https://en.wikipedia.org/wiki/Pelton_wheel}
 
-% Slide 16
-\begin{frame}{Environmental Impact}
-    \centering
-    Hydrokinetic systems are considered environmentally friendly.
-    
-    \vspace{1em}
-    
-    The blades rotate slowly, allowing fish to swim around them safely.
-    
-    \vspace{1em}
-    
-    There is no thermal pollution, and no emissions are released into the water or air.
-\end{frame}
+    Wikipedia contributors. (n.d.-c). \textit{Pumped-storage hydroelectricity}. In \textit{Wikipedia}. Retrieved January 1, 2026, from \url{https://en.wikipedia.org/wiki/Pumped-storage_hydroelectricity}
 
-% Slide 17
-\begin{frame}{Potential in Turkey}
-    \centering
-    Turkey has significant potential for hydrokinetic energy.
-    
-    \vspace{1em}
-    
-    The Bosphorus and Dardanelles straits have strong, continuous currents that are ideal for energy harvesting.
-    
-    \vspace{1em}
-    
-    Additionally, the extensive irrigation canal networks in the GAP region offer controlled environments for smaller turbines.
-\end{frame}
-
-% Slide 18
-\begin{frame}{Economic Viability}
-    \centering
-    Currently, the cost of energy is higher than established technologies like wind or solar.
-    
-    \vspace{1em}
-    
-    However, as the technology matures and mass production begins, costs are expected to drop significantly.
-    
-    \vspace{1em}
-    
-    The low maintenance and long lifespan of civil structures contribute to good long-term economics.
-\end{frame}
-
-% Slide 19
-\begin{frame}{Future Outlook}
-    \centering
-    The future of hydrokinetic energy is promising.
-    
-    \vspace{1em}
-    
-    Research is focusing on array configurations, where multiple turbines work together like a wind farm.
-    
-    \vspace{1em}
-    
-    Innovations in materials science and smart grid integration will further enhance their adoption.
-\end{frame}
-
-% Slide 20
-\begin{frame}{Conclusion}
-    \centering
-    Hydrokinetic energy conversion is a vital piece of the sustainable energy puzzle.
-    
-    \vspace{1em}
-    
-    It offers a reliable, baseload power source that complements intermittent renewables.
-    
-    \vspace{1em}
-    
-    For civil engineers, it presents exciting challenges in structural design, fluid dynamics, and marine construction.
-    
-    \vspace{2em}
-    \textbf{Thank You}
+    Wikipedia contributors. (n.d.-d). \textit{Kaplan turbine}. In \textit{Wikipedia}. Retrieved January 1, 2026, from \url{https://en.wikipedia.org/wiki/Kaplan_turbine}
 \end{frame}
 
 \end{document}
