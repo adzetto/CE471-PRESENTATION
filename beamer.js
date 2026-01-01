@@ -69,5 +69,10 @@
   window.addEventListener('keydown', onKey);
   window.addEventListener('hashchange', () => showSlide(fromHash()));
 
+  const nextBtn = document.getElementById('nav-next');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => step(1));
+  }
+
   showSlide(fromHash());
 })();
