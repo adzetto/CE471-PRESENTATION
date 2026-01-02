@@ -87,7 +87,13 @@
 
         ctx.setTransform(outputScale, 0, 0, outputScale, 0, 0);
 
-        return page.render({ canvasContext: ctx, viewport }).promise;
+        const renderTask = page.render({ canvasContext: ctx, viewport });
+        
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error("Render timeout")), 15000)
+        );
+
+        return Promise.race([renderTask.promise, timeoutPromise]);
       })
       .then(() => {
         pageRendering = false;
@@ -108,7 +114,10 @@
       })
       .catch((error) => {
         console.error(error);
-        statusText.textContent = "Failed to render the PDF.";
+        pageRendering = false;
+        canvasWrap.classList.remove("is-rendering");
+        renderHint.textContent = "";
+        statusText.textContent = `Error: ${error.message}`;
       });
   };
 
@@ -157,7 +166,11 @@
 
   loader.classList.add("is-active");
 
-  const loadingTask = pdfjsLib.getDocument(pdfUrl);
+  const loadingTask = pdfjsLib.getDocument({
+    url: pdfUrl,
+    cMapUrl: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/",
+    cMapPacked: true,
+  });
   loadingTask.onProgress = (progressData) => {
     if (progressData.total) {
       const percent = Math.round((progressData.loaded / progressData.total) * 100);
