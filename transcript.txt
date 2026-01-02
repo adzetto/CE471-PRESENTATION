@@ -1,0 +1,109 @@
+PART A - Muhammet (Slides 1-8, ~5 minutes)
+
+[Slide 1 - Cover]
+Hello everyone. I'm Muhammet Yagcioglu, and my co-presenter is Hamidreza Khalaj Zahraei.
+We are with the Izmir Institute of Technology, Department of Civil Engineering.
+Our emails are on the slide if you want to follow up.
+Today we introduce hydrokinetic power systems from a civil and water resources perspective.
+
+[Slide 2 - Presentation Overview]
+I will start with the big picture and why this technology matters.
+Then I will define hydrokinetic energy and show how it differs from traditional hydropower.
+I will also highlight key applications and global projects.
+After that, Hamid will take over and cover engineering, siting, and delivery.
+
+[Slide 3 - Introduction to Hydrokinetic Energy]
+Hydrokinetic energy uses the motion of water itself.
+Instead of storing water behind a dam, turbines sit in rivers or tidal channels.
+This keeps the infrastructure smaller and faster to build.
+It is often called zero-head or in-stream power.
+The main idea is to harvest energy while keeping the river more natural.
+
+[Slide 4 - Why Humanity Needs HECS]
+Electricity demand keeps rising as populations grow and more sectors electrify.
+The chart shows steady global growth over time.
+At the same time, we must decarbonize the grid.
+Hydrokinetic systems provide low-carbon power close to communities.
+This combination of local supply and low impact makes the topic urgent.
+
+[Slide 5 - Water-Energy-Climate Nexus]
+Climate change is making water more variable and less predictable.
+Droughts reduce flows and extreme events damage infrastructure.
+Engineers must balance energy production with ecosystem health and community needs.
+Hydrokinetic systems help because they avoid large reservoirs or major diversions.
+They can be scaled and adapted over time, supporting water security.
+
+[Slide 6 - Kinetic vs Potential Energy]
+Conventional hydropower uses potential energy created by head.
+That usually requires dams, reservoirs, and sometimes resettlement.
+Hydrokinetic systems use kinetic energy in free-flowing water.
+This reduces land take and preserves river connectivity.
+In many regions, that difference is key for public acceptance.
+
+[Slide 7 - Applications and Benefits]
+These systems fit rivers, tidal straits, and coastal channels with steady flow.
+Projects can be modular, so utilities can start small and expand.
+Visual impact is low and civil works are lighter.
+Tides are predictable, which helps grid planning.
+That makes hydrokinetic power a strong complement to other renewables.
+
+[Slide 8 - Major Operational Projects by Country]
+This table summarizes key operating projects.
+In Scotland, the MeyGen array operates at 6 MW, and the Orbital O2 platform is a 2 MW floating turbine.
+In Northern Ireland, SeaGen reached 1.2 MW as an early commercial prototype.
+In South Korea, Uldolmok runs a 1 MW tidal current station.
+These projects show the technology is working in multiple countries and conditions.
+
+HANDOFF POINT: After Slide 8, I will hand over to Hamid.
+
+PART B - Hamid (Slides 9-15, ~5 minutes)
+
+[Slide 9 - Project Highlights and Lessons]
+Thanks, Muhammet. I will continue with lessons from these projects.
+MeyGen shows how phased arrays can scale while managing environmental approvals.
+Orbital O2 shows how floating systems can reduce installation time and allow maintenance at the surface.
+SeaGen demonstrated early commercial operation and provided long-term performance data.
+Uldolmok shows how government-backed demonstrations can build national expertise.
+The lesson is that durability, maintenance access, and permitting are as important as turbine design.
+
+[Slide 10 - Working Principle]
+At a basic level, flow turns the rotor.
+The rotation drives a shaft connected to a generator.
+The generator converts mechanical motion to electricity, and power electronics condition it for the grid.
+Sealing and corrosion control are essential in the water environment.
+For civil engineers, the key is aligning equipment needs with site conditions.
+
+[Slide 11 - Site Selection and Resource Assessment]
+Good sites have consistent flow and adequate depth.
+Bed material and scour risk define the foundation strategy.
+Proximity to loads and grid access reduces project cost.
+Environmental constraints guide layout and monitoring plans.
+Reliable field measurements are essential before design decisions are made.
+
+[Slide 12 - Civil and Environmental Design]
+Foundations must resist drag, turbulence, and debris.
+Scour protection is critical for long-term stability.
+Fish passage and habitat continuity are core permitting requirements.
+Visual impact and navigation safety also matter to communities.
+Civil and environmental design is a multidisciplinary task.
+
+[Slide 13 - Construction and Grid Integration]
+Construction is often staged with modular components.
+Work windows depend on flow conditions and navigation schedules.
+Cables connect devices to shore substations, and transformers prepare power for the grid.
+Early coordination with utilities helps avoid delays.
+Access planning often drives the schedule and the cost.
+
+[Slide 14 - Reliability Challenges]
+Biofouling and corrosion are constant threats in water.
+Cavitation can damage blades over time.
+Solutions include coatings, materials selection, and planned inspections.
+Reliability lowers lifecycle costs and improves bankability.
+This is a key message for long-term deployment.
+
+[Slide 15 - Conclusion and Global Outlook]
+Hydrokinetic systems offer a low-impact way to harvest flowing water energy.
+They fit locations where large dams are not feasible.
+Success depends on site-specific engineering and clear regulation.
+Think of a turbine as a fan in the flow, harvesting energy without stopping the river.
+Thank you for listening.

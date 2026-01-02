@@ -1,310 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principles and Mechanics of Hydrokinetic Power Systems</title>
-    <link rel="stylesheet" href="beamer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydrokinetic Energy Conversion Systems | Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="beamer.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha512-N0j7s2Z1w8YSv9Tz9hFQNLWqWHfNzVMbK3oD5c4iBBYkN2VQ0h7z7A4BdoBaRr4fV1N7ed9S4jy6mVZ0edbmbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="beamer.js"></script>
 </head>
 <body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
 
-<div class="slide-container">
-    <div class="header">
-        <div class="left">IZTECH Civil Engineering</div>
-        <div class="right">Hydrokinetic Energy Conversion Systems</div>
-    </div>
+  <main class="app">
+    <header class="topbar">
+      <div class="title-block">
+        <span class="eyebrow">CE471 | Civil Engineering</span>
+        <h1>Principles and Mechanics of Hydrokinetic Power Systems</h1>
+        <p>Beamer deck viewer for Hydrokinetic Energy Conversion Systems.</p>
+      </div>
 
-    <div class="slide active" id="slide-1">
-        <h2>Introduction to Hydrokinetic Energy (HECS)</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>HECS generates electricity from the <strong>kinetic energy</strong> of flowing water.</li>
-                    <li>No dams or large reservoirs are required, so civil works are smaller.</li>
-                    <li>Often described as <strong>zero-head</strong> or <strong>in-stream</strong> power.</li>
-                </ul>
-                <p>These systems tap the energy already present in rivers and tides, making them suitable for remote loads and grid support.</p>
-                <p><strong>Principles and Mechanics of Hydrokinetic Power Systems</strong></p>
-                <p>Hamidreza Khalaj Zahrari · Muhammet Yağcıoğlu</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide01_tidalenergy.jpg" alt="Tidal energy turbine concept">
-                <div class="caption">Figure: Tidal energy turbine concept (Wikimedia Commons).</div>
-            </div>
+      <div class="controls">
+        <button class="pill-btn" id="prevBtn" aria-label="Previous slide">Prev</button>
+        <button class="pill-btn" id="nextBtn" aria-label="Next slide">Next</button>
+        <div class="page-readout">
+          <span id="pageNum">1</span> / <span id="pageCount">--</span>
         </div>
-    </div>
+        <input id="pageSlider" type="range" min="1" max="1" value="1" aria-label="Slide number">
+        <button class="pill-btn" id="zoomOut" aria-label="Zoom out">-</button>
+        <div class="zoom-readout" id="zoomLevel">100%</div>
+        <button class="pill-btn" id="zoomIn" aria-label="Zoom in">+</button>
+        <button class="pill-btn" id="fitWidth" aria-label="Fit to width">Fit</button>
+        <button class="pill-btn" id="fullscreen" aria-label="Toggle fullscreen">Full</button>
+        <a class="pill-btn ghost" href="presentation.pdf" download>Download</a>
+      </div>
+    </header>
 
-    <div class="slide" id="slide-2">
-        <h2>Kinetic vs Potential Energy: The Core Distinction</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>Conventional hydropower</strong> uses potential energy from head.</li>
-                    <li><strong>Hydrokinetic power</strong> uses kinetic energy in free-flowing water.</li>
-                    <li>Reduced ecological disruption and simpler permitting are common benefits.</li>
-                </ul>
-                <p>The design choice affects environmental footprint, construction cost, and social impact.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide02_dam.jpg" alt="Hydropower dam infrastructure">
-                <div class="caption">Figure: Hydropower dam infrastructure (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
+    <section class="viewer" aria-live="polite">
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="pdfCanvas"></canvas>
+        <div class="render-hint" id="renderHint">Rendering slide...</div>
+      </div>
+      <div class="progress-line">
+        <span id="pageProgress"></span>
+      </div>
+      <div class="helper">Use arrow keys for navigation. Hold Ctrl and scroll to zoom.</div>
 
-    <div class="slide" id="slide-3">
-        <h2>The Governing Physics of Power Extraction</h2>
-        <div class="columns">
-            <div class="column text">
-                <p class="equation">P = 0.5 &rho; A V^3</p>
-                <ul class="bullets">
-                    <li>&rho;: water density, A: rotor swept area, V: flow velocity.</li>
-                    <li>Power grows with the <strong>cube</strong> of velocity.</li>
-                    <li>Doubling velocity yields eight times more power.</li>
-                </ul>
-                <p>Velocity sensitivity drives careful site selection and long-term monitoring.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide03_underwater.jpg" alt="Underwater turbine hardware">
-                <div class="caption">Figure: Underwater turbine hardware (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-4">
-        <h2>Energy Density and Medium Comparison</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>Water is roughly <strong>832–850 times</strong> denser than air.</li>
-                    <li>Higher density enables smaller turbines for similar power output.</li>
-                    <li>Typical power density: <strong>7.8 kW/m²</strong> (water) vs <strong>1.1 kW/m²</strong> (wind).</li>
-                </ul>
-                <p>This density advantage is the core reason HECS can be compact and efficient.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide04_windfarm.jpg" alt="Wind farm comparison">
-                <div class="caption">Figure: Wind farm comparison (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-5">
-        <h2>The Betz Limit and Efficiency Constraints</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>Betz Limit:</strong> theoretical maximum of <strong>59.3%</strong>.</li>
-                    <li>Optimized designs reach about <strong>40.8%</strong> power coefficient.</li>
-                    <li>Overall system efficiency drops to around <strong>15.9%</strong> after losses.</li>
-                </ul>
-                <p>These limits define realistic performance targets for designers and planners.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide05_turbine_forces.png" alt="Turbine force diagram">
-                <div class="caption">Figure: Turbine force diagram (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-6">
-        <h2>Working Principle: Flow to Electricity</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>Rotor rotation produces torque from moving water.</li>
-                    <li>Shaft and gearbox transmit torque to the generator.</li>
-                    <li>Electromagnetic induction creates electric current.</li>
-                    <li>Transformers condition power for grid connection.</li>
-                </ul>
-                <p>The conversion chain is short but requires robust sealing and corrosion protection.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide06_generator.png" alt="Synchronous generator schematic">
-                <div class="caption">Figure: Synchronous generator schematic (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-7">
-        <h2>Classification of Turbines: Axis Orientation</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>Horizontal Axis (HAHkT):</strong> axis parallel to flow.</li>
-                    <li><strong>Vertical Axis (VAHkT):</strong> axis perpendicular to flow.</li>
-                    <li>Selection depends on bathymetry, current direction, and mounting method.</li>
-                </ul>
-                <p>Engineers balance efficiency, reliability, and maintenance access at each site.</p>
-            </div>
-            <div class="column media">
-                <div class="media-row">
-                    <img class="figure-img" src="figures/slide07_hahkt.jpg" alt="Horizontal axis turbine">
-                    <img class="figure-img" src="figures/slide07_vahkt.jpg" alt="Vertical axis turbine">
-                </div>
-                <div class="caption">Figure: Horizontal- and vertical-axis exemplars (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-8">
-        <h2>Horizontal Axis Hydrokinetic Turbines (HAHkT)</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>Generally <strong>more efficient</strong> due to consistent lift forces.</li>
-                    <li>Capture power across a full 360-degree rotation.</li>
-                    <li>Precise blade profiles improve performance but raise cost.</li>
-                </ul>
-                <p>Most commercial-scale projects use horizontal-axis designs for predictable flows.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide08_hahkt_seagen.jpg" alt="SeaGen tidal turbine">
-                <div class="caption">Figure: SeaGen tidal turbine (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-9">
-        <h2>Vertical Axis and Cross-Flow Turbines</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>Omni-directional operation suits reversing tidal flows.</li>
-                    <li><strong>Gorlov</strong> helical blades smooth torque output.</li>
-                    <li>Recent optimisations close the efficiency gap.</li>
-                </ul>
-                <p>These turbines trade some peak efficiency for simpler yaw control.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide09_gorlov.png" alt="Gorlov helical turbine concept">
-                <div class="caption">Figure: Gorlov helical turbine concept (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-10">
-        <h2>Energy Methods: In-Stream vs Marine Systems</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>In-stream:</strong> rivers and canals with unidirectional flow.</li>
-                    <li><strong>Marine:</strong> tidal currents with bidirectional cycles.</li>
-                    <li>Marine systems need stronger corrosion and biofouling protection.</li>
-                </ul>
-                <p>Hydrodynamics define turbine design, anchoring, and maintenance logistics.</p>
-            </div>
-            <div class="column media">
-                <div class="media-row">
-                    <img class="figure-img" src="figures/slide10_instream.jpg" alt="In-stream turbine">
-                    <img class="figure-img" src="figures/slide10_marine.jpg" alt="Marine tidal platform">
-                </div>
-                <div class="caption">Figure: In-stream and tidal platforms (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-11">
-        <h2>Deployment and Mounting Methods</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>BSM:</strong> fixed to the bed, leaving surface navigation clear.</li>
-                    <li><strong>FSM:</strong> floating platforms for high-energy surface flow.</li>
-                    <li><strong>NSM:</strong> mounted to bridges or pylons near the surface.</li>
-                </ul>
-                <p>Mounting choices set structural load paths and maintenance strategy.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide11_mounting.png" alt="Bottom mounted turbine diagram">
-                <div class="caption">Figure: Bottom-mounted turbine concept (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-12">
-        <h2>Methods for Efficiency Enhancement: Shrouds</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>Shrouds/ducts accelerate flow through the rotor.</li>
-                    <li>Well-designed shrouds can increase output by <strong>21%</strong> or more.</li>
-                    <li>Ducts also protect blades from debris and reduce wake losses.</li>
-                </ul>
-                <p>Shrouded turbines help unlock sites with limited current velocity.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide12_shroud.png" alt="Ducted turbine concept">
-                <div class="caption">Figure: Ducted propulsor concept (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-13">
-        <h2>Resource Assessment and Site Criteria</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>Velocity:</strong> minimum 1.0 m/s, optimal around 2.0 m/s.</li>
-                    <li><strong>Cross-section:</strong> deep, wide channels enable arrays.</li>
-                    <li><strong>Proximity:</strong> close to loads to limit cable costs.</li>
-                </ul>
-                <p>Long-term measurements are required to capture seasonal variability.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide13_adcp.jpg" alt="Acoustic Doppler Current Profiler">
-                <div class="caption">Figure: ADCP flow measurement (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-14">
-        <h2>System Integrity: Challenges and Mitigation</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li><strong>Biofouling:</strong> mitigated with anti-fouling coatings.</li>
-                    <li><strong>Cavitation:</strong> addressed via optimized blade geometry.</li>
-                    <li><strong>Maintenance:</strong> advanced materials and robotics cut downtime.</li>
-                </ul>
-                <p>Monitoring and predictive maintenance are essential for lifecycle cost control.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide14_cavitation.jpg" alt="Cavitation damage on propeller">
-                <div class="caption">Figure: Cavitation damage on propeller (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide" id="slide-15">
-        <h2>Conclusion and Global Outlook</h2>
-        <div class="columns">
-            <div class="column text">
-                <ul class="bullets">
-                    <li>HECS is a sustainable alternative where large dams are not feasible.</li>
-                    <li>Success depends on site-specific engineering and streamlined regulation.</li>
-                    <li>Projects like <strong>MeyGen</strong> show megawatt-scale viability.</li>
-                </ul>
-                <p><em>Analogy:</em> A dam is a heavy battery; a hydrokinetic turbine is a fan in the flow, harvesting energy without stopping it.</p>
-            </div>
-            <div class="column media">
-                <img class="figure-img" src="figures/slide15_outlook.jpg" alt="Tidal turbine deployment">
-                <div class="caption">Figure: Tidal turbine deployment (Wikimedia Commons).</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="left">Group 10 - Khalaj Zahrari &amp; Yağcıoğlu</div>
-        <div class="right">Page <span id="page-num">1</span> of 15</div>
-    </div>
-</div>
-
-<div class="controls">
-    <button onclick="prevSlide()">Previous</button>
-    <button onclick="nextSlide()">Next</button>
-</div>
-
-<script src="beamer.js"></script>
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <div class="status" id="statusText">Loading PDF...</div>
+        <div class="loadbar"><span id="progressBar"></span></div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
