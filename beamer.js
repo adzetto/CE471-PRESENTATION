@@ -158,7 +158,9 @@
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
+      canvasWrap.requestFullscreen().catch((err) => {
+        console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
+      });
     } else {
       document.exitFullscreen();
     }
@@ -249,6 +251,12 @@
   window.addEventListener("resize", () => {
     if (fitMode && pdfDoc) {
       queueRenderPage(pageNum);
+    }
+  });
+
+  document.addEventListener("fullscreenchange", () => {
+    if (fitMode && pdfDoc) {
+      setTimeout(() => queueRenderPage(pageNum), 100);
     }
   });
 })();

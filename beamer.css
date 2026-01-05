@@ -236,6 +236,14 @@ body::before {
   min-height: 60vh;
 }
 
+.canvas-wrap:fullscreen {
+  background: #000;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
 #pdfCanvas {
   max-width: 100%;
   height: auto;
